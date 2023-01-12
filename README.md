@@ -1,4 +1,4 @@
-# Estacao Meterorologica para Monitoramento de Irrigação
+# Estação Meteorologica para Monitoramento de Irrigação
 
 ![Badge em Análise](https://img.shields.io/badge/Status-Análise%20e%20Pesquisa-darkgreen?logoColor=7834cd&labelColor=white&style=for-the-badge)
 ![stars](https://img.shields.io/github/stars/maiconrp/Estacao-Meterorologic.svg?labelColor=white&color=darkgreen&style=for-the-badge)
