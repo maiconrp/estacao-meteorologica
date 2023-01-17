@@ -19,10 +19,10 @@ FirebaseConfig config;
 
 bool signupOK = false;
 
-#define WIFI_SSID "Familia Pereira"
-#define WIFI_PASSWORD "Dinamarca"
+#define WIFI_SSID "nome"
+#define WIFI_PASSWORD "senha"
 
-#define API_KEY "AIzaSyDRgO8OH2ctVG-d6D-bH3qD1cOqeeCXl_k"
+#define API_KEY "key"
 #define DATABASE_URL "https://estacao-meteorologic-default-rtdb.firebaseio.com/"
 
 #define LED_BUILTIN 2
