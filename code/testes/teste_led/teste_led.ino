@@ -1,91 +1,83 @@
 /*
-  ESP 32 Blink
-  Turns on an LED on for one second, then off for one second, repeatedly.
-  The ESP32 has an internal blue LED at D2 (GPIO 02)
+Board: Esp32 Dev Module
+ArduinoID v2.0.3
 */
-#include <WiFi.h>
-#include <Firebase_ESP_Client.h>          // firebase library
 
-//Provide the token generation process info.
-#include "addons/TokenHelper.h"
-//Provide the RTDB payload printing info and other helper functions.
-#include "addons/RTDBHelper.h"
+//importando bibliotecas
+#include <WiFi.h>                          //importa biblioteca para conectar esp32 com wifi
+#include <IOXhop_FirebaseESP32.h>          //importa biblioteca para esp32 se comunicar com firebase
+#include <ArduinoJson.h>                   //importa biblioteca para colocar informação no formato json, utilizado no firebase (intalar versão 5.13.3)
 
-//Define Firebase Data object
-FirebaseData fbdo;
+// Credenciais do firebase: Link e Senha
+#define FIREBASE_HOST "link do banco de dados"
+#define FIREBASE_AUTH "senha"
+// senha em https://console.firebase.google.com/u/0/project/NOME-DO-PROJETO/settings/serviceaccounts/databasesecrets?hl=pt>
 
-FirebaseAuth auth;
-FirebaseConfig config;
-
-bool signupOK = false;
-
+// Credenciais de wifi: Nome e Senha
 #define WIFI_SSID "nome"
 #define WIFI_PASSWORD "senha"
 
-#define API_KEY "key"
-#define DATABASE_URL "https://estacao-meteorologic-default-rtdb.firebaseio.com/"
-
+// Definir led interno
 #define LED_BUILTIN 2
 
-void set_wifi() {
-    Serial.begin(115200);
-    WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
-    Serial.print("Connecting to Wi-Fi");
-    while (WiFi.status() != WL_CONNECTED){
-      Serial.print(".");
-      delay(300);
-    }
-    Serial.println();
-    Serial.print("Connected to ");
-    Serial.println(WIFI_SSID);
-    Serial.print("Connected ao IP: ");
-    Serial.println(WiFi.localIP());
-    Serial.println();
-}
-void set_firebase(){
-    /* Assign the api key (required) */
-  config.api_key = API_KEY;
-
-  /* Assign the RTDB URL (required) */
-  config.database_url = DATABASE_URL;
-
-  /* Sign up */
-  if (Firebase.signUp(&config, &auth, "", "")){
-    Serial.println("ok");
-    signupOK = true;
-  }
-  else{
-    Serial.printf("%s\n", config.signer.signupError.message.c_str());
-  }
-
-  /* Assign the callback function for the long running token generation task */
-  config.token_status_callback = tokenStatusCallback; //see addons/TokenHelper.h
+void setup() {
+  //inicia comunicação serial
+  Serial.begin(115200);   
   
-  Firebase.begin(&config, &auth);
-  Firebase.reconnectWiFi(true);
+  //inicia comunicação com wifi com rede definica anteriormente
+  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);     
+  
+  //imprime "Conectando ao wifi"
+  Serial.print("Conectando ao wifi");    
+
+  //enquanto se conecta ao wifi fica colocando pontos   
+  while (WiFi.status() != WL_CONNECTED){    
+    Serial.print(".");
+    delay(500);
+  }
+  Serial.println();
+  Serial.print("connected: ");
+  Serial.println(WiFi.localIP());
+
+  //inicia comunicação com firebase definido anteriormente
+  Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH); 
+  
+  // Define o pino definido anteriormente como saída
+  pinMode(LED_BUILTIN, OUTPUT); 
+  
+  // Liga o pino ativando a voltalgem como Alta
+  digitalWrite(LED_BUILTIN, HIGH);  
+  delay(1000); // espera 1segundo
+  digitalWrite(LED_BUILTIN, LOW);  
+  // Desliga o pino ativando a voltalgem como Baixa
 }
 
-void setup() 
-{
-  // Initialise serial communication for local diagnostics
-  Serial.begin(115200);
+void loop() {
+  
+  // Pega a variavel 'led' do firebase como inteiro'getInt' e imprime
+  Serial.print("led: ");
+  Serial.println(Firebase.getInt("/led")); 
+  delay(1000);
 
-  set_wifi();
-  set_firebase();
+  // define a variavel 'firebaseStatus' com o valor da variavel 'led' do firebase
+  int firebaseStatus = Firebase.getInt("/led"); 
 
-  pinMode(LED_BUILTIN, OUTPUT);
-}
-
-void loop() 
-{
-  int firebaseStatus = Firebase.RTDB.getInt(&fbdo, "led");
-  if (firebaseStatus == 1){
+  // Se o valor da a variavel 'led' do firebase for 1, liga o led
+  if (firebaseStatus == 1) {
     Serial.println("Led ligado");
-    digitalWrite(LED_BUILTIN, HIGH);    // turn the LED off by making the voltage HIGH
-  }else if (firebaseStatus == 0){
+    digitalWrite(LED_BUILTIN, HIGH);  
+  } 
+  // Se o valor da a variavel 'led' do firebase for 0, desliga o led
+  else if (firebaseStatus == 0) {
     Serial.println("Led desligado");
-    digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
-  }else{
-    Serial.println("Credencial errada! Por favor, envie ON/OFF");
-  };
+    digitalWrite(LED_BUILTIN, LOW);  
+  } 
+  // Se não for nenhum dos dois, verifica se falhou a conexão e, caso sim, imprime o erro
+  else {
+      if (Firebase.failed()) {
+        Serial.print("Pegar /led falhou:");
+        Serial.println(Firebase.error());
+        return;
+      }
+  }
 }
