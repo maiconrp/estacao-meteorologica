@@ -31,12 +31,9 @@ A estrutura de arquivos do projeto pode ser organizada da seguinte forma:
 
 ```
 
-A estrutura de arquivos acima é uma sugestão para organizar um aplicativo desenvolvido com o Flet.dev. É importante notar que essa estrutura pode ser adaptada de acordo com as necessidades específicas do seu projeto.
+### Diretórios e Arquivos
 
-* **app (raiz):** todos os arquivos necessários para o funcionamento do aplicativo.
-    *  **main.py**:  arquivo principal, responsável por inicializar e gerenciar a execução do aplicativo.
-
-### Diretórios
+*  **main.py**:  arquivo principal, responsável por inicializar e gerenciar a execução do aplicativo.
 
 * **pages/**: Arquivos relacionados às páginas do aplicativo. Cada arquivo dentro deste diretório representa uma página diferente do aplicativo. Por exemplo, "home.py" representa a página inicial do aplicativo e "settings.py" representa a página de configurações.
 
