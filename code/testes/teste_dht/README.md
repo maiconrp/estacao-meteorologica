@@ -1,5 +1,5 @@
-# ESP32 Dev Module - Controlar LED com Firebase
-Este exemplo mostra como usar o ESP32 Dev Module para controlar um LED através do Firebase.
+# Documentação - ESP32 com Sensor DHT22 e Firebase
+Este exemplo mostra como usar o ESP32 com o sensor DHT22 para ler dados de temperatura e umidade e enviá-los para o Firebase.
 
 ## Bibliotecas
 * **DHT.h:** Biblioteca para o sensor DHT22, versão 1.2.3.
