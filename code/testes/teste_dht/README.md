@@ -1,6 +1,15 @@
 # Documentação - ESP32 com Sensor DHT22 e Firebase
 Este exemplo mostra como usar o ESP32 com o sensor DHT22 para ler dados de temperatura e umidade e enviá-los para o Firebase.
 
+<br>
+<img src="https://user-images.githubusercontent.com/60708311/213896567-85050a7b-e66d-48cd-bf20-c49cee2e76ee.png" width=250 align="left"/>
+
+## DHT22
+O DHT22 é um sensor de umidade e temperatura digital que se comunica com o ESP32 através de um único pino de dados. Ele é composto por um termistor (para medir a temperatura) e um capacitor (para medir a umidade). Para utilizar o sensor, é necessário instalar a biblioteca DHT.h e criar um objeto "dht" inicializado com o pino de dados e o tipo de sensor (DHT22).
+
+<br>
+<br>
+
 ## Bibliotecas
 * **DHT.h:** Biblioteca para o sensor DHT22, versão 1.2.3.
 * **WiFi.h:** Biblioteca para conectar o ESP32 com WiFi.
