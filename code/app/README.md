@@ -5,28 +5,28 @@ A estrutura de arquivos do projeto pode ser organizada da seguinte forma:
 
 ```md
 .
-├── app/
-│   ├── main.py
-│   ├── pages/
-│   │   ├── home.py
-│   │   ├── login.py
-│   │   └── ...
-│   ├── components
-│   │   ├── button.py
-│   │   ├── textfield.py
-│   │   └── ...
-│   ├── assets/
-│   ├── utils/
-│   │   ├── models.py
-│   │   ├── routes.py
-│   ├── firebase/
-│   │   ├── auth.py
-│   │   ├── db.py
-│   ├── config/
-│   │   ├── settings.py
-│   │   └── firebase.py
-│   ├── requirements.txt
-|   └── README.md
+└── app/
+    ├── main.py
+    ├── pages/
+    │   ├── home.py
+    │   ├── login.py
+    │   └── ...
+    ├── components
+    │   ├── button.py
+    │   ├── textfield.py
+    │   └── ...
+    ├── assets/
+    ├── utils/
+    │   ├── classes.py
+    │   ├── routes.py
+    ├── firebase/
+    │   ├── auth.py
+    │   ├── db.py
+    ├── config/
+    │   ├── settings.py
+    │   └── firebase.py
+    ├── requirements.txt
+    └── README.md
 
 
 ```
@@ -42,13 +42,18 @@ A estrutura de arquivos do projeto pode ser organizada da seguinte forma:
 *  **assets/**: Arquivos de recursos do aplicativo, como imagens, ícones, etc.
 
 *  **utils/**: Arquivos de utilitários do aplicativo, como funções de ajuda, configurações, etc.
-    *  **models.py**: Responsável por lidar com a lógica de negócios e comunicação com o banco de dados.
+    *  **classes.py**:Responsavel por definir as Classes das entidades da aplicação
     *  **routes.py**: Responsável por configurar as rotas da aplicação.  
     
 *  **firebase/**: Arquivos relacionados à autenticação e comunicação com o Firebase.
-    *  O arquivo "auth.py" é responsável por lidar com a autenticação do usuário.
-    *  O arquivo "db.py" é responsável por lidar com a comunicação com o banco de dados do Firebase.
+    *  **auth.py**: Responsável por lidar com a autenticação do usuário.
+    *  **db.py**: Responsável por lidar com a comunicação com o banco de dados do Firebase.
     
 *  **config/**: Arquivos de configurações do aplicativo.
     *  **settings.py**" contém configurações gerais do aplicativo.
-    *  **db_config.py**" contém configurações de conexão com o banco
+    *  **firebase.py**" contém configurações de conexão com o banco
+    
+* **requirements.txt**: Dependências do projeto.
+* **README.md**: Documentação do projeto.
+
+
