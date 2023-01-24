@@ -569,7 +569,7 @@
 											"top": 824,
 											"width": 597.974609375,
 											"height": 13,
-											"text": "+coeficiente_crescimento: List[4] = [0, 0, 0,  0]",
+											"text": "+estagio_desenvolvimento: List[4] = [f1, f2, f3, f4]",
 											"horizontalAlignment": 0
 										},
 										{
@@ -657,13 +657,30 @@
 											"height": 13,
 											"text": "+volume_diario_atual: Float = 0",
 											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGFzXrbboN0q6w=",
+											"_parent": {
+												"$ref": "AAAAAAGFqM0IMS3rFaw="
+											},
+											"model": {
+												"$ref": "AAAAAAGFzXrbUINxIyQ="
+											},
+											"font": "Arial;13;0",
+											"left": 205,
+											"top": 899,
+											"width": 597.974609375,
+											"height": 13,
+											"text": "+coeficiente_crescimento: Float",
+											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 200,
 									"top": 729,
 									"width": 607.974609375,
-									"height": 173
+									"height": 188
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -704,7 +721,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 205,
-											"top": 909,
+											"top": 924,
 											"width": 597.974609375,
 											"height": 13,
 											"text": "+calcular_Et_cultura(coeficiente_crescimento, evapotranspiracao_de_referencia): Float",
@@ -721,7 +738,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 205,
-											"top": 924,
+											"top": 939,
 											"width": 597.974609375,
 											"height": 13,
 											"text": "+calcular_tempo_irrigacao_atual(Et_cultura, area_plantacao, vazao_agua): Float",
@@ -738,7 +755,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 205,
-											"top": 939,
+											"top": 954,
 											"width": 597.974609375,
 											"height": 13,
 											"text": "+calcular_economia(volume_diario_anterior, volume_diario _atual): Float",
@@ -755,7 +772,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 205,
-											"top": 954,
+											"top": 969,
 											"width": 597.974609375,
 											"height": 13,
 											"text": "+calcular_volume_diario_atual(tempo_irriacao_atual, vazao_agua): Float",
@@ -764,7 +781,7 @@
 									],
 									"font": "Arial;13;0",
 									"left": 200,
-									"top": 902,
+									"top": 917,
 									"width": 607.974609375,
 									"height": 70
 								},
@@ -806,7 +823,7 @@
 							"left": 200,
 							"top": 704,
 							"width": 607.974609375,
-							"height": 282,
+							"height": 283,
 							"nameCompartment": {
 								"$ref": "AAAAAAGFqM0IMS3mgP8="
 							},
@@ -2446,10 +2463,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGFqM0IMi36O1U="
 							},
-							"name": "coeficiente_crescimento",
-							"type": "List",
-							"multiplicity": "4",
-							"defaultValue": "[0, 0, 0,  0]"
+							"name": "estagio_desenvolvimento",
+							"type": "List[4] = [f1, f2, f3, f4]"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -2498,6 +2513,15 @@
 							"name": "volume_diario_atual",
 							"type": "Float",
 							"defaultValue": "0"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAGFzXrbUINxIyQ=",
+							"_parent": {
+								"$ref": "AAAAAAGFqM0IMi36O1U="
+							},
+							"name": "coeficiente_crescimento",
+							"type": "Float"
 						}
 					],
 					"operations": [
