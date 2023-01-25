@@ -2,7 +2,6 @@ from componentes.TextField import pressao, radiacao, temperatura, umidade, vento
 from componentes.NavigationBar import navigation_bar
 from componentes.AppBar import appbar
 import flet as ft
-import routes
 
 class MeteorologiaPage:
     def build():
