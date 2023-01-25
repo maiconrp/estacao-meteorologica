@@ -1,10 +1,8 @@
 import flet as ft
-from pages import home, login, meteorologia
 
 from componentes.AppBar import appbar
 from componentes.NavigationBar import navigation_bar
-from componentes.botões.ElevatedButton import ElevatedButton, ElevatedButton2, HomeButton, LoginButton
-from componentes.TextField import pressao, radiacao, temperatura, umidade, vento
+from componentes.botões.ElevatedButton import ElevatedButton
 
 from routes import Route
 
@@ -20,7 +18,6 @@ def main(page: ft.Page):
     def set_events():
         appbar.actions[2].items[2].on_click=check_item_clicked
         ElevatedButton.on_click=lambda _: page.go("/login")
-        ElevatedButton2.on_click=lambda _: page.go("/")
 
         navigation_bar.on_change = navigation_bar_change
 
@@ -33,8 +30,6 @@ def main(page: ft.Page):
         print("e control:", e.control.selected_index)
         rotas = Route.get_routes()
         page.go(rotas[index])
-        # ["/", "/login", "/Meteorologia"]
-        # 0, 1, 2
         
     def route_change(route):
         page.views.clear()
