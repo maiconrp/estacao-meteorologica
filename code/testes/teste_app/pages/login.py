@@ -1,5 +1,4 @@
 import flet as ft
-import routes
 from componentes.botões.ElevatedButton import LoginButton
 from componentes.NavigationBar import navigation_bar
 from componentes.AppBar import appbar
