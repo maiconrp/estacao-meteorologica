@@ -3,6 +3,8 @@ import flet as ft
 from componentes.AppBar import appbar
 from componentes.NavigationBar import navigation_bar
 from componentes.botões.ElevatedButton import ElevatedButton
+from componentes.TextField import pressao, radiacao, temperatura, umidade, vento
+from config.firebase import database
 
 from routes import Route
 
@@ -20,6 +22,12 @@ def main(page: ft.Page):
         ElevatedButton.on_click=lambda _: page.go("/login")
 
         navigation_bar.on_change = navigation_bar_change
+
+        pressao.on_change=lambda _: page.update() 
+        radiacao.on_change=lambda _: page.update() 
+        temperatura.on_change=lambda _: page.update() 
+        umidade.on_change=lambda _: page.update() 
+        vento.on_change=lambda _: page.update() 
 
     def check_item_clicked(e):
         e.control.checked = not e.control.checked
