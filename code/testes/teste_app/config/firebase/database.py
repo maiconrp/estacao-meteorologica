@@ -1,62 +1,55 @@
-from config.py import FIREBASE
+from .config import FIREBASE
 from componentes.TextField import pressao, radiacao, temperatura, umidade, vento
 
 db = FIREBASE.database()
 
-Produtor = db.child("Produtor")
-Cultura = Produtor.child("Cultura")
-Meteorologia = Cultura.child("Meteorologia")
+path = "/Produtor/Cultura/Meteorologia/{}/valor_atual"
 
-class MeteorologiaStream:
-    def __init__(self, variavel, objeto):
-        self.variavel = db.child(variavel)
-        self.variavel_stream = self.variavel.stream(self.stream_variavel)
-        self.objeto = objeto
-
-    def stream_variavel(self, message):
-        objeto.value = message["data"]
-        page.update()
-        
-    def start(self):
-        self.vento_stream.start()
-
-class FirebaseValor:
-    def __init__(self, nome, caminho, campo):
-        self.nome = nome
-        self.caminho = caminho
-        self.campo = campo
-
-    def start():
-        caminhos_valores + nome + "valor_atual"
-        pass
-
-def stream_pressão(message):
-    pressao.value = message["data"] # altera o valor do elemento (pressao.value) e atualiza
-    page.update()
-
-def stream_radiacao(message):
-    radiacao.value = message["data"]
-    page.update()
-
-def stream_temp(message):
-    temperatura.value = message["data"]
-    page.update()
-
-def stream_umidade(message):
-    umidade.value = message["data"]
-    page.update()
-
-def stream_vento(message):
-    vento.value = message["data"]
-    page.update()
+def stream(message):
+    componentes = {
+        "pressao":pressao,
+        "radiacao": radiacao,
+        "temperatura": temperatura,
+        "umidade": umidade,
+        "vento": vento,
+    }
+    componente = componentes.get(message["stream_id"])
+    componente.value = message["data"]
     
-# Pega cada valor de info clima e manda pra função monitorar ^
-firebase_pressao = Meteorologia.child("pressao/valor_atual").stream(stream_pressao)
-radiacao_stream = Meteorologia.child("radiacao/valor_atual").stream(stream_vento)
-temperatura_stream = Meteorologia.child("temperatura/valor_atual").stream(stream_temp)
-umidade_stream = Meteorologia.child("umidade/valor_atual").stream(stream_umidade)
-vento_stream = Meteorologia.child("vento/valor_atual").stream(stream_vento)
+# variaveis do firebase, que são monitoradas pela funçãO STREAM, sendo diferenciadas pelo stream_id 
+pressao_stream = db.child(path.format("pressao")).stream(stream, stream_id="pressao")
 
+radiacao_stream = db.child(path.format("radiacao")).stream(stream, stream_id="radiacao")
+
+temperatura_stream = db.child(path.format("temperatura")).stream(stream, stream_id="temperatura")
+
+umidade_stream = db.child(path.format("umidade")).stream(stream, stream_id="umidade")
+
+vento_stream = db.child(path.format("vento")).stream(stream, stream_id="vento")
+
+
+# class MeteorologiaStream:
+#     def __init__(self, variavel, objeto):
+#         self.variavel = db.child(variavel)
+#         self.variavel_stream = self.variavel.stream(self.stream_variavel)
+#         self.objeto = objeto
+
+#     def stream_variavel(self, message):
+#         objeto.value = message["data"]
+#         page.update()
+        
+#     def start(self):
+#         self.vento_stream.start()
+
+# class FirebaseValor:
+#     def __init__(self, nome, caminho, campo):
+#         self.nome = nome
+#         self.caminho = caminho
+#         self.campo = campo
+
+#     def start():
+#         caminhos_valores + nome + "valor_atual"
+#         pass
 
 # pegar banco de dados
 
