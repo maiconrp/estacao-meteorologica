@@ -1,21 +1,22 @@
-from pages import home, login, meteorologia
-
-# DESTINOS
+from pages.home import HomePage
+from pages.login import LoginPage
+from pages.meteorologia import MeteorologiaPage
     
 class Route:
-    def build_routes():
-        ROUTES = {
-            "/": home.HomePage.build(),
-            "/login": login.LoginPage.build(),
-            "/Meteorologia": meteorologia.MeteorologiaPage.build()
-        }
-        return ROUTES
+    # Define as rotas disponíveis no aplicativo, com o caminho da rota como chave e o destino (página ou componente) como valor
+    ROUTES = {
+        "/": HomePage.build(), # Rota para a página inicial
+        "/login": LoginPage.build(), # Rota para a página de login
+        "/Meteorologia": MeteorologiaPage.build() # Rota para a página de meteorologia
+    }
 
+    @classmethod
+    def get_destiny(cls, route):
+        # Retorna o destino (página ou componente) associado à rota especificada
+        return cls.ROUTES.get(route, "/")
 
-    def get_destiny(route):
-        return Route.build_routes().get(route, "/")
+    @classmethod
+    def get_routes(cls):
+        # Retorna uma lista de todas as rotas disponíveis no aplicativo
+        return list(cls.ROUTES.keys())
 
-    def get_routes():
-        return list(Route.build_routes().keys()) 
-        # ["/", "/login", "/Meteorologia"]
-        # 0, 1, 2
