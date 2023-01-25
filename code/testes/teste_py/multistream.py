@@ -101,6 +101,8 @@ def main(page: ft.Page):
         componente = componentes.get(message["stream_id"])
         componente.value = message["data"]
         page.update()
+        return print(message["stream_id"], message["data"])
+    
     
     # caminho base para variáveis
     path = "/Produtor/Cultura/Meteorologia/{}/valor_atual"
