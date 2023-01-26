@@ -1,9 +1,31 @@
 from flet import NavigationBar, NavigationDestination, icons
 
-navigation_bar = NavigationBar(
-    destinations=[
-        NavigationDestination(icon=icons.EXPLORE, label="Home"),
-        NavigationDestination(icon=icons.COMMUTE, label="Login"),
-        NavigationDestination(icon=icons.COMMUTE, label="Meteorologia"),
-    ],
-)
+import flet as ft
+
+class NavigationBarTemplate:
+    """
+    Classe para criar uma barra de navegação com configurações comuns
+    
+    Atributos:
+        ATRIBUTO       TIPO                            DEFINIÇÃO
+        destinations   (List[NavigationDestination])   lista de destinos de navegação
+    """
+
+    def __init__(self, destinations):
+        self.destinations = destinations
+
+    def build(self):
+        """
+        Cria um objeto <NavigationBar> com as configurações especificadas no construtor
+        
+        Retorna: NavigationBar: barra de navegação criada
+        """
+        return ft.NavigationBar(destinations=self.destinations)
+    
+destinations = [
+    ft.NavigationDestination(icon=ft.icons.EXPLORE, label="Home"),
+    ft.NavigationDestination(icon=ft.icons.COMMUTE, label="Login"),
+    ft.NavigationDestination(icon=ft.icons.COMMUTE, label="Meteorologia"),
+]
+
+navigation_bar = NavigationBarTemplate(destinations).build()
