@@ -1,32 +1,56 @@
+"""
+Este código é responsável por estabelecer uma conexão com o banco de dados do Firebase, 
+e monitorar as variações dos valores de pressão, radiação, temperatura, umidade e vento. 
+Quando houver uma atualização nos valores dessas variáveis, a função "stream" é chamada 
+e atualiza o valor exibido no campo de texto correspondente.
+
+Importações:
+- O módulo 'config' é importado para obter a configuração do Firebase.
+- Os componentes 'TextField' são importados para exibir os valores das variáveis monitoradas.
+
+Variáveis:
+- 'db': objeto que representa a conexão com o banco de dados do Firebase.
+- 'path': string com o caminho para as variáveis monitoradas no banco de dados.
+- 'pressao', 'radiacao', 'temperatura', 'umidade' e 'vento': objetos do tipo 'TextField' que exibem os valores das variáveis monitoradas.
+- 'pressao_stream', 'radiacao_stream', 'temperatura_stream', 'umidade_stream' e 'vento_stream': objetos que representam a conexão com as variáveis monitoradas no banco de dados.
+
+Funções:
+- 'stream': é chamada sempre que há uma atualização nos valores das variáveis monitoradas. 
+            Ela recebe como parâmetro a mensagem com o novo valor e atualiza o valor exibido 
+            no campo de texto correspondente.
+"""
+
 from .config import FIREBASE
 from componentes.TextField import pressao, radiacao, temperatura, umidade, vento
 
+# Inicialização do banco de dados do Firebase
 db = FIREBASE.database()
 
+# Caminho padrão para acesso às informações meteorológicas
 path = "/Produtor/Cultura/Meteorologia/{}/valor_atual"
 
+# Dicionário para associar cada tipo de dado meteorológico ao seu respectivo componente de texto
+componentes = {
+    "pressao": pressao,
+    "radiacao": radiacao,
+    "temperatura": temperatura,
+    "umidade": umidade,
+    "vento": vento,
+}
+
+# Função para atualizar os valores dos componentes de texto quando houver mudanças no Firebase
 def stream(message):
-    componentes = {
-        "pressao":pressao,
-        "radiacao": radiacao,
-        "temperatura": temperatura,
-        "umidade": umidade,
-        "vento": vento,
-    }
+    # Busca o componente correspondente ao tipo de dado meteorológico recebido
     componente = componentes.get(message["stream_id"])
+    # Atualiza o valor do componente
     componente.value = message["data"]
     
-# variaveis do firebase, que são monitoradas pela funçãO STREAM, sendo diferenciadas pelo stream_id 
+# Inicialização dos streams de dados do Firebase para cada tipo de dado meteorológico
 pressao_stream = db.child(path.format("pressao")).stream(stream, stream_id="pressao")
-
 radiacao_stream = db.child(path.format("radiacao")).stream(stream, stream_id="radiacao")
-
 temperatura_stream = db.child(path.format("temperatura")).stream(stream, stream_id="temperatura")
-
 umidade_stream = db.child(path.format("umidade")).stream(stream, stream_id="umidade")
-
 vento_stream = db.child(path.format("vento")).stream(stream, stream_id="vento")
-
 
 # class MeteorologiaStream:
 #     def __init__(self, variavel, objeto):
