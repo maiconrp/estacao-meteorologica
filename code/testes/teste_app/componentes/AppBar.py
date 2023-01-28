@@ -1,5 +1,4 @@
-from flet import AppBar
-import flet as ft
+from flet import *
 
 class AppBarTemplate:
     """
@@ -11,7 +10,7 @@ class AppBarTemplate:
         leading_width  (int):      Largura do elemento à esquerda                                          (None)
         title          (Any):      Título da barra de aplicativo                                           (None)
         center_title   (bool):     Se o título está centralizado na barra de aplicativo                     (True)
-        bgcolor        (Color):    Cor de fundo da barra de aplicativo                                     (ft.colors.PRIMARY)
+        bgcolor        (Color):    Cor de fundo da barra de aplicativo                                     (colors.PRIMARY)
         actions        (list):     Lista de elementos a serem exibidos à direita da barra de aplicativo     (None)
     """
 
@@ -21,7 +20,7 @@ class AppBarTemplate:
         leading_width=None,
         title=None,
         center_title=True,
-        bgcolor=ft.colors.PRIMARY,
+        bgcolor=colors.PRIMARY,
         actions=None
     ):
         self.leading = leading
@@ -37,7 +36,7 @@ class AppBarTemplate:
 
         Retorna: AppBar: barra de aplicativo criada
         """
-        return ft.AppBar(
+        return AppBar(
             leading=self.leading,
             leading_width=self.leading_width,
             title=self.title,
@@ -47,19 +46,19 @@ class AppBarTemplate:
         )
 
 appbar = AppBarTemplate(
-    leading=ft.Icon(ft.icons.PALETTE),
+    leading=Icon(icons.PALETTE),
     leading_width=40,
-    title=ft.Text("Estação Metereológica"),
+    title=Text("Estação Metereológica"),
     center_title=False,
-    bgcolor=ft.colors.GREEN,
+    bgcolor=colors.GREEN,
     actions=[
-        ft.IconButton(ft.icons.WB_SUNNY_OUTLINED),
-        ft.IconButton(ft.icons.FILTER_3),
-        ft.PopupMenuButton(
+        IconButton(icons.WB_SUNNY_OUTLINED),
+        IconButton(icons.FILTER_3),
+        PopupMenuButton(
             items=[
-                ft.PopupMenuItem(text="Item 1"),
-                ft.PopupMenuItem(),  # divider
-                ft.PopupMenuItem(
+                PopupMenuItem(text="Item 1"),
+                PopupMenuItem(),  # divider
+                PopupMenuItem(
                     text="Checked item", checked=False
                 ),
             ]
