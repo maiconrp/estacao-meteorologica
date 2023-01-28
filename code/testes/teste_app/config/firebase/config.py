@@ -1,12 +1,13 @@
-import pyrebase # biblioteca pra comunicação com firebase
-import json # biblioteca pra ler o arquivo json de configurações firebase
+import pyrebase # biblioteca para comunicação com firebase
+import json # biblioteca para ler o arquivo JSON de configurações do Firebase
 import os
 
+# Diretório base da aplicação
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-# credenciais de comunicação
-with open(BASE_DIR+"\config.json", 'r') as f:
+# Carrega as credenciais de comunicação com o Firebase
+with open(os.path.join(BASE_DIR, "config.json"), 'r') as f:
     CONFIG = json.load(f)
 
-# configura comunicação com firebase
+# Configura a comunicação com o Firebase
 FIREBASE = pyrebase.initialize_app(CONFIG)
