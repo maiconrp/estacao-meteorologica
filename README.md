@@ -50,15 +50,10 @@ Para mais, veja os [Casos de Uso][casos de uso]
 Para contribuir veja o [nosso guia][guia]
 
 ## Equipe
-> [![Icone de check](https://img.shields.io/badge/✔️-white?style=for-the-badge&logoColor=blue)
-![Bruno](https://img.shields.io/badge/Bruno%20Reis-darkgreen?style=for-the-badge&logo=clipboard-list&logoColor=white)](https://github.com/brunoreisx)
-[![Icone de check](https://img.shields.io/badge/✔️-white?style=for-the-badge&logoColor=blue)
-![Maicon](https://img.shields.io/badge/Maicon%20Robert-darkgreen?style=for-the-badge&logo=clipboard-list&logoColor=white)](https://github.com/maiconrp)
-[![Icone de check](https://img.shields.io/badge/✔️-white?style=for-the-badge&logoColor=blue)
-![Paulo](https://img.shields.io/badge/Paulo%20César-darkgreen?style=for-the-badge&logo=clipboard-list&logoColor=white)](https://github.com/Soneca-Zzz)
-[![Icone de check](https://img.shields.io/badge/✔️-white?style=for-the-badge&logoColor=blue)
-![Victor](https://img.shields.io/badge/Victor%20Fonteles-darkgreen?style=for-the-badge&logo=clipboard-list&logoColor=white)](https://github.com/Voctor-367)
-
+[![Bruno](https://img.shields.io/badge/Bruno%20Reis-darkgreen?style=for-the-badge&logo=clipboard-list&logoColor=white)](https://github.com/brunoreisx)
+[![Maicon](https://img.shields.io/badge/Maicon%20Robert-darkgreen?style=for-the-badge&logo=clipboard-list&logoColor=white)](https://github.com/maiconrp)
+[![Paulo](https://img.shields.io/badge/Paulo%20César-darkgreen?style=for-the-badge&logo=clipboard-list&logoColor=white)](https://github.com/Soneca-Zzz)
+[![Victor](https://img.shields.io/badge/Victor%20Fonteles-darkgreen?style=for-the-badge&logo=clipboard-list&logoColor=white)](https://github.com/Voctor-367)
 
 [docs]: https://github.com/maiconrp/estacao-meteorologica/tree/master/docs
 [casos de uso]: https://github.com/maiconrp/estacao-meteorologica/blob/master/docs/Doc%20de%20visao/Doc%20de%20Vis%C3%A3o%20-%20Esta%C3%A7%C3%A3o%20Meteorol%C3%B3gica.pdf
