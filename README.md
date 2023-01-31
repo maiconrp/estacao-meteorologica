@@ -1,6 +1,6 @@
 # Estação Meteorológica IoT para Irrigação
 
-![Badge em Análise](https://img.shields.io/badge/Status-Análise%20e%20Pesquisa-darkgreen?logoColor=7834cd&labelColor=white&style=for-the-badge)
+![Badge em Análise](https://img.shields.io/badge/Status-Prototipagem-darkgreen?logoColor=7834cd&labelColor=white&style=for-the-badge)
 ![stars](https://img.shields.io/github/stars/maiconrp/Estacao-Meterorologic.svg?labelColor=white&color=darkgreen&style=for-the-badge)
 ![Issues](https://img.shields.io/github/issues/maiconrp/Estacao-Meterorologic?labelColor=white&color=darkgreen&style=for-the-badge)
 ![Pull Requests](https://img.shields.io/github/issues-pr/maiconrp/Estacao-Meterorologic?labelColor=white&color=darkgreen&style=for-the-badge)
@@ -23,20 +23,20 @@ O projeto possui diversas melhorias, implementando cada vez mais novos recursos.
 
 O firmware é compilado usando o Arduino IDE e os softwares de envio de dados são desenvolvidos utilizando C/C++, no qual se faz uso das bibliotecas abaixo listadas: 
 
-* `WiFi.h`: Biblioteca para conectar o ESP32 com WiFi.
-* `IOXhop_FirebaseESP32.h`: Biblioteca para comunicação do ESP32 com o Firebase.
-* `ArduinoJson.h`: Biblioteca para manipulação de informações no formato JSON, utilizado no Firebase. Versão 5.13.3 é recomendada.
-* `DHT.h`: Biblioteca para o sensor DHT22, versão 1.2.3.
+* `WiFi.h`: Conexão do ESP32 com WiFi.
+* `IOXhop_FirebaseESP32.h`: Comunicação do ESP32 com o Firebase;
+* `ArduinoJson.h`: Manipulação de informações no formato JSON (v5.13.3);
+* `DHT.h`: Manipulação do sensor DHT22 (v1.2.3)
 
 ### Aplicação
 A interface é construida em python, para isso, ela utiliza algumas bibliotecas que permitem o seu desenvolvimento, nas quais incluem:
 
-* `flet`: Biblioteca para construção da interface
-* `pyrebase4`: Biblioteca para comunicação com o Firebase
+* `flet`: Construção da interface
+* `pyrebase4`: Comunicação com o Firebase
 
 ## Modo de Funcionamento 
 
-Considerando um usuário autenticado e com sua produção cadastrada, o modo de funcionamento geral do sistema é:
+Considerando um usuário autenticado e com produção cadastrada, o modo de funcionamento geral do sistema é:
 
 1. Funcionando continuamente, onde os sensores realizam medições dos parâmetros necessários;
 2. Os dados são enviados para um servidor (Firebase) com um intervalo programado;
@@ -47,7 +47,7 @@ Considerando um usuário autenticado e com sua produção cadastrada, o modo de 
 Para mais, veja os [Casos de Uso][casos de uso]
 
 ## Contribuir
-Para saber como contribuir veja o [nosso guia][guia]
+Para contribuir veja o [nosso guia][guia]
 
 ## Equipe
 > [![Icone de check](https://img.shields.io/badge/✔️-white?style=for-the-badge&logoColor=blue)
