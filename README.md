@@ -3,10 +3,20 @@
 ![Badge em Análise](https://img.shields.io/badge/Status-Prototipagem-darkgreen?logoColor=7834cd&labelColor=white&style=for-the-badge)
 ![stars](https://img.shields.io/github/stars/maiconrp/Estacao-Meterorologic.svg?labelColor=white&color=darkgreen&style=for-the-badge)
 ![Issues](https://img.shields.io/github/issues/maiconrp/Estacao-Meterorologic?labelColor=white&color=darkgreen&style=for-the-badge)
-![Pull Requests](https://img.shields.io/github/issues-pr/maiconrp/Estacao-Meterorologic?labelColor=white&color=darkgreen&style=for-the-badge)
 ![Last Commit](https://img.shields.io/github/last-commit/maiconrp/Estacao-Meterorologic?display_timestamp=committer&labelColor=white&color=darkgreen&style=for-the-badge)
 
 Este projeto visa desenvolver um sistema de monitoramento de irrigação via estação meteorológica conectada à internet (IoT). Os valores coletados pela estação, enviados para um banco de dados, são utilizados na mensuraração da necessidade hídrica da plantação, que por sua vez, é exibido em uma aplicação (PWA)  e esses dados serem enviados para o servidor para possibilitar a visualização do seu histórico. Para informações mais detalhadas, veja a [documentação][docs]
+
+## Funcionalidades:
+* [ ] Cadastro e Autenticação de produtor
+* [ ] Gerenciamento de cultura;
+* [ ] Controlde e monitoramento da estação;
+* [ ] Envio dos dados coletados pela estação para banco de dados.
+* [ ] Notificação de mal funcionamento de sensores ou coleta de dados.
+* [ ] Cálculo da Evapotranspiração de Referência e Diária da Cultura.
+* [ ] Visualização dos dados climatológicos e do tempo de irrigação ativo
+* [ ] Calculo de conomia de consumo de água.
+
 
 O projeto possui diversas melhorias, implementando cada vez mais novos recursos. 
 
