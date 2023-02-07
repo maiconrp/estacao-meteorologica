@@ -49,14 +49,24 @@ void set_firebase(){
 };
 
 void pegar_dados(){
-  float reading = analogRead(TEMT6000_PIN); //Read light level
-  Serial.print("Reading: "); Serial.println(reading);
-
-  double volts = reading * 5.0 / 1024.0;
-  Serial.print("Volts: "); Serial.println(volts);
-
-  float lux2 = analogRead(TEMT6000_PIN) * 0.9765625; // 1000 / 1024 = 0.9765625
+  /*
+   float lux2 = analogRead(TEMT6000_PIN) * 0.9765625; // 1000 / 1024 = 0.9765625
   Serial.println(lux2);
+  */
+  int reading = analogRead(TEMT6000_PIN); //Lê o valor da entrada analógica
+  double volts = reading * 5.0 / 1024.0; //Converte o valor lido em volts
+  double irradiance = volts / 0.05; //Calcula o fluxo de radiação em W/m²
+  double irradiance_mj = irradiance * 0.0036; //Converte o fluxo de radiação para MJ m^(-2) d^(-1)
+  
+  Serial.print("Irradiance: ");
+  Serial.print(irradiance);
+  Serial.println(" W/m²");
+  
+  Serial.print("Irradiance (MJ m^(-2) d^(-1)): ");
+  Serial.println(irradiance_mj);
+  
+  delay(1000); //Aguarda 1 segundo antes de realizar a próxima leitura
+  
 };
 
 void void enviar_dados(){
