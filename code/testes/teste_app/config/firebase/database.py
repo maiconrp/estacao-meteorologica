@@ -29,6 +29,7 @@ Loops:
 
 """
 
+"""
 from .config import FIREBASE
 from componentes.TextField import pressao, radiacao, temperatura, umidade, vento
 
@@ -169,3 +170,4 @@ print(streams)
 #     umidade.stream_database()
 #     vento = Database("Vento", "stream")
 #     vento.stream_database()
+"""
