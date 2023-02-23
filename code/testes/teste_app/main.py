@@ -79,3 +79,5 @@ def main(page: ft.Page):
     set_events()
 
 ft.app(target=main)
+
+
