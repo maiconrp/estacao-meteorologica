@@ -1,3 +1,4 @@
+"""
 import pyrebase # biblioteca para comunicação com firebase
 import json # biblioteca para ler o arquivo JSON de configurações do Firebase
 import os
@@ -11,3 +12,4 @@ with open(os.path.join(BASE_DIR, "config.json"), 'r') as f:
 
 # Configura a comunicação com o Firebase
 FIREBASE = pyrebase.initialize_app(CONFIG)
+"""

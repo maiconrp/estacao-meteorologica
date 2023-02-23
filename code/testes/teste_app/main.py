@@ -24,7 +24,7 @@ def main(page: ft.Page):
     def set_events():
 
         # Evento de clique na ação de menu de appbar
-        appbar.actions[2].items[2].on_click=check_item_clicked
+        
 
         # Evento de clique no botão ElevatedButton
         ElevatedButton.on_click=lambda _: page.go("/login")

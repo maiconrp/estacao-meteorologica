@@ -18,13 +18,16 @@ class AppBarTemplate:
         self,
         leading=None,
         leading_width=None,
+        height_width=None,
         title=None,
         center_title=True,
         bgcolor=colors.PRIMARY,
         actions=None
+
     ):
         self.leading = leading
         self.leading_width = leading_width
+        self.height_width = height_width
         self.title = title
         self.center_title = center_title
         self.bgcolor = bgcolor
@@ -46,21 +49,18 @@ class AppBarTemplate:
         )
 
 appbar = AppBarTemplate(
-    leading=Icon(icons.PALETTE),
     leading_width=40,
+    height_width=30,
     title=Text("Estação Metereológica"),
     center_title=False,
-    bgcolor=colors.GREEN,
+    bgcolor=colors.BLUE,
     actions=[
-        IconButton(icons.WB_SUNNY_OUTLINED),
-        IconButton(icons.FILTER_3),
+       
+        
         PopupMenuButton(
             items=[
                 PopupMenuItem(text="Item 1"),
                 PopupMenuItem(),  # divider
-                PopupMenuItem(
-                    text="Checked item", checked=False
-                ),
             ]
         ),
     ],

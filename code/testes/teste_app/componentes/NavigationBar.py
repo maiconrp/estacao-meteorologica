@@ -23,9 +23,9 @@ class NavigationBarTemplate:
         return ft.NavigationBar(destinations=self.destinations)
     
 destinations = [
+    ft.NavigationDestination(icon=ft.icons.COMMUTE, label="Cultura"),
     ft.NavigationDestination(icon=ft.icons.EXPLORE, label="Home"),
-    ft.NavigationDestination(icon=ft.icons.COMMUTE, label="Login"),
-    ft.NavigationDestination(icon=ft.icons.COMMUTE, label="Meteorologia"),
+    ft.NavigationDestination(icon=ft.icons.COMMUTE, label="Perfil"),
 ]
 
 navigation_bar = NavigationBarTemplate(destinations).build()
