@@ -1,7 +1,5 @@
-
 import flet as ft
 from flet import UserControl
-
 
 class ContainerTemplate(UserControl):
     def __init__(
@@ -16,13 +14,17 @@ class ContainerTemplate(UserControl):
         border_radius=None
     ):
 
+        # Metodo init
+        super().__init__()
+        self.content=content
+        self.margin=margin
         self.content=content
         self.margin=margin
         self.padding=padding
         self.alignment=alignment
         self.bgcolor=bgcolor
+        self.border_radius=border_radius 
 
-        self.border_radius=border_radius
 
 
     def build(self):
@@ -34,78 +36,50 @@ class ContainerTemplate(UserControl):
             bgcolor=self.bgcolor,
             width=self.width,
             height=self.height,
-            border_radius=self.borderradius,
+            border_radius=self.border_radius,
         )
 
+IrrigacaoTitle = ContainerTemplate(
+            content=ft.Text("Irrigação", color='#000000'),
+            margin=10,
+            padding=10,
+            alignment=ft.alignment.center,  
+            bgcolor='#EBEBF0',          
+            width=70,
+            height=20,
+            border_radius=20,
+            )
+
+IconTime = ContainerTemplate(
+            content=ft.Icon(name=ft.icons.WATCH_LATER, color='#00d154', size=30),
+            )
+
 Irrigacao = ContainerTemplate(
-    margin=10,
-    padding=10,
-    alignment=ft.alignment.center,
-    bgcolor=ft.colors.AMBER,
-    width=150,
-    height=150,
-    border_radius=10,
-)
+            ft.Row(
+                        [
+                            IrrigacaoTitle, 
+                            IconTime, 
+                        ]
+                    ),
+                    
+            margin=50,
+            padding=50,
+            alignment=ft.alignment.center,
+            bgcolor='white',
+            width=150,
+            height=150,
+            border_radius=10,
+            )
 
 Evapotranspiracao = ContainerTemplate(
-                    content=ft.Text("Non clickable"),
-                    bgcolor=ft.colors.AMBER,
-                )
+                content=ft.Text("Non clickable"),
+                bgcolor='white',
+            )
 
 Economia = ContainerTemplate(
-                    content=ft.Text("Non clickable"),
-                    alignment=ft.alignment.center,
-                    bgcolor=ft.colors.AMBER,
-                )
-
-"""            
-            ft.Row(
-            [
-                ft.Container(
-                    content=ft.Text("Non clickable"),
-                    margin=10,
-                    padding=10,
-                    alignment=ft.alignment.center,
-                    bgcolor=ft.colors.AMBER,
-                    width=150,
-                    height=150,
-                    border_radius=10,
-                ),
-                ft.Container(
-                    content=ft.Text("Clickable without Ink"),
-                    margin=10,
-                    padding=10,
-                    alignment=ft.alignment.center,
-                    bgcolor=ft.colors.GREEN_200,
-                    width=150,
-                    height=150,
-                    border_radius=10,
-                    on_click=lambda e: print("Clickable without Ink clicked!"),
-                ),
-                ft.Container(
-                    content=ft.Text("Clickable with Ink"),
-                    margin=10,
-                    padding=10,
-                    alignment=ft.alignment.center,
-                    bgcolor=ft.colors.CYAN_200,
-                    width=150,
-                    height=150,
-                    border_radius=10,
-                    ink=True,
-                    on_click=lambda e: print("Clickable with Ink clicked!"),
-                ),
-                ft.Container(
-                    content=ft.Text("Clickable transparent with Ink"),
-                    margin=10,
-                    padding=10,
-                    alignment=ft.alignment.center,
-                    width=150,
-                    height=150,
-                    border_radius=10,
-                    ink=True,
-                    on_click=lambda e: print("Clickable transparent with Ink clicked!"),
-                ),
-            ],
-            alignment=ft.MainAxisAlignment.CENTER,
-        ),
-"""
+                content=ft.Text("Non clickable"),
+                alignment=ft.alignment.center,
+                bgcolor='white',
+            )
+          
+        
