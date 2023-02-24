@@ -8,6 +8,8 @@ Descreva de maneira clara e concisa qual foi o objetivo das alterações realiza
 - Adicionar...
 - Filtrar. 
 
+## Explique as mudanças realizadas
+
 ## Screenshots (opcional)
 
 Se aplicável, adicione screenshots da funcionalidade implementada para facilitar o entendimento.
@@ -18,7 +20,7 @@ Se aplicável, adicione screenshots da funcionalidade implementada para facilita
 
 - [ ] Nova funcionalidade
 
-- [ ] Alteração de funcionalidade existente
+- [ ] Alteração de funcionalidade
 
 ## Checklist
 
