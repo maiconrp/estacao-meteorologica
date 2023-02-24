@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 # Insira sua mensagem de commit acima ^
 # Estrutura do commit: :emoji: tipo: Verbo infinitivo + descrição concisa
@@ -37,3 +38,31 @@
 #   :boom: fix: Revertendo mudanças ineficientes        💥 fix: Reverter mudanças ineficientes
 #   :lipstick: feat: Estilizaçao CSS do formulario      💄 feat: Estilizar CSS do formulario
 #   :test_tube: test: Criando novo teste                🧪 test: Criar novo teste
+=======
+# Estrutura do commit: :emoji: tipo: Verbo infinitivo + descrição concisa
+#
+# Emoji:
+#   :sparkles: - nova funcionalidade (feat)
+#   :bug: - correção de bug (fix)
+#   :books: - alteração de documentação (docs)
+#   :art: - mudanças que não afetam o código (formatação, espaços em branco, etc) (style)
+#   :recycle: - mudança de código que não corrige um bug nem adiciona uma funcionalidade (refactor)
+#   :zap: - mudança de código que melhora o desempenho (perf)
+#   :white_check_mark: - adição de testes faltantes ou correção de testes existentes (test)
+#   :construction: - mudanças no processo de build ou ferramentas auxiliares e bibliotecas (chore)
+#
+# Flags:
+#   -m "mensagem do commit"
+#
+# Exemplo de mensagem de commit:
+#
+# :sparkles: feat: Adicionar capacidade de ordenar lista por data
+#
+# Adiciona uma nova função à classe principal que permite aos usuários
+# ordenar uma lista de itens por data.
+#
+# Fechamento de problema(s): #123, #456
+# Depreciações: None
+#
+# Uso: git commit -m ":sparkles: feat: Adicionar capacidade de ordenar lista por data - fecha #123, #456"
+>>>>>>> 329ea9721295d5d7506a748c190fb319b0e8892f
