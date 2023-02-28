@@ -16,11 +16,11 @@ class HomePage:
                     HomeButton,
                     ft.Row(
                         [
-                            Irrigacao, 
-                            Economia, 
+                            Irrigacao,
+                            Economia
                         ]
-                    ),
-                    Evapotranspiracao, 
+                    ),            
+                    Evapotranspiracao,                  
                     navigation_bar
                 ],
             )

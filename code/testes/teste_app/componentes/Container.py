@@ -54,6 +54,21 @@ IconTime = ContainerTemplate(
             content=ft.Icon(name=ft.icons.WATCH_LATER, color='#00d154', size=30),
             )
 
+EconomiaTitle = ContainerTemplate(
+            content=ft.Text("Economia", color='#000000'),
+            margin=10,
+            padding=10,
+            alignment=ft.alignment.center,  
+            bgcolor='#EBEBF0',          
+            width=70,
+            height=20,
+            border_radius=20,
+            )
+
+IconPercentage = ContainerTemplate(
+            content=ft.Icon(name=ft.icons.AREA_CHART_OUTLINED, color='#00d154', size=30),
+            )
+
 Irrigacao = ContainerTemplate(
             ft.Row(
                         [
@@ -71,15 +86,86 @@ Irrigacao = ContainerTemplate(
             border_radius=10,
             )
 
+Cultura = ContainerTemplate(
+                ft.Column(
+                    [
+                            ft.Row([
+                                ft.Icon(name=ft.icons.ENERGY_SAVINGS_LEAF, color='#00d154', size=15), 
+                                ft.Text("Cultura", color='#000000', weight=ft.FontWeight.W_600),
+                            ]),
+                            ft.Text("67", color='#000000', weight=ft.FontWeight.W_600, size=60),
+                            ft.Text("mm/dia", color='#000000'),
+                    ]
+                ),                        
+)
+
+Referencia = ContainerTemplate(
+                ft.Column(
+                    [
+                            ft.Row([
+                                ft.Icon(name=ft.icons.WATER_DROP, color='#00d154', size=15), 
+                                ft.Text("Referência", color='#000000', weight=ft.FontWeight.W_600),
+                            ]),
+                            ft.Text("48", color='#000000', weight=ft.FontWeight.W_600, size=60),
+                            ft.Text("mm/dia", color='#000000'),
+                    ]
+                )
+)
+
+'''content=ft.Icon(name=ft.icons.WATER_DROP, color='#00d154', size=30), '''
+
+'''Referencia = ContainerTemplate(
+                ft.Column(
+                    [
+                        ft.ListTile(
+                            leading=ft.Icon(name=ft.icons.WATER_DROP, color='#00d154', size=30),
+                            title=ft.Text("Referência", color='#000000'),
+                            subtitle=ft.Text(
+                                "48", color='#000000',
+                            ),
+                        ),
+                    ]
+                ),
+                margin=10,
+                padding=10,
+                alignment=ft.alignment.center,  
+                bgcolor='#EBEBF0',          
+                width=70,
+                height=20,
+                border_radius=20,
+)'''
+
+
 Evapotranspiracao = ContainerTemplate(
-                content=ft.Text("Non clickable"),
-                bgcolor='white',
+            ft.Row(
+                    [
+                        Referencia, 
+                        Cultura,
+                    ]
+            ),       
+            margin=20,
+            padding=20,
+            alignment=ft.alignment.center,
+            bgcolor='white',
+            width=500,
+            height=300,
+            border_radius=10,        
             )
 
 Economia = ContainerTemplate(
-                content=ft.Text("Non clickable"),
+                ft.Row(
+                        [
+                            EconomiaTitle, 
+                            IconPercentage, 
+                        ]
+                    ),
+                margin=50,
+                padding=50,
                 alignment=ft.alignment.center,
                 bgcolor='white',
+                width=150,
+                height=150,
+                border_radius=10,
             )
           
         
