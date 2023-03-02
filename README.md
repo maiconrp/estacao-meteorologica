@@ -1,5 +1,6 @@
 # Estação Meteorológica IoT para Irrigação
 
+[![Codacy Badge](https://img.shields.io/codacy/grade/5fbcfb3918384fa79c68bed98701fccb/master?labelColor=white&&color=darkgreen&style=for-the-badge)](https://www.codacy.com/gh/maiconrp/estacao-meteorologica/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=maiconrp/estacao-meteorologica&amp;utm_campaign=Badge_Grade;style=for-the-badge)
 ![Badge em Análise](https://img.shields.io/badge/Status-Prototipagem-darkgreen?logoColor=7834cd&labelColor=white&style=for-the-badge)
 ![stars](https://img.shields.io/github/stars/maiconrp/Estacao-Meterorologic.svg?labelColor=white&color=darkgreen&style=for-the-badge)
 ![Issues](https://img.shields.io/github/issues/maiconrp/Estacao-Meterorologic?labelColor=white&color=darkgreen&style=for-the-badge)
