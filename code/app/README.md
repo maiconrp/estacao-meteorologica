@@ -1,59 +1,92 @@
 # `DOCS` Aplicação
 
-# Estrutura de Arquivos
+## Estrutura de Arquivos
 A estrutura de arquivos do projeto pode ser organizada da seguinte forma:
 
-```md
-.
-└── app/
-    ├── main.py
-    ├── pages/
-    │   ├── home.py
-    │   ├── login.py
+```
+└── 📂app/
+    ├── 📄main.py
+    ├── 📄routes.py
+    ├── 📂pages/
+    │   ├── 📄home.py
+    │   ├── 📄login.py
     │   └── ...
-    ├── components
-    │   ├── button.py
-    │   ├── textfield.py
+    ├── 📂componentes/
+    │   ├── 📂botões/
+    │   │   ├── 📄ElevatedButton.py
+    │   │   └──...
+    │   ├── 📂inputs/
+    │   │   ├── 📄TextField.py
+    │   │   └──...
     │   └── ...
-    ├── assets/
-    ├── utils/
-    │   ├── classes.py
-    │   ├── routes.py
-    ├── firebase/
-    │   ├── auth.py
-    │   ├── db.py
-    ├── config/
-    │   ├── settings.py
-    │   └── firebase.py
-    ├── requirements.txt
-    └── README.md
-
+    ├── 📂assets/
+    │   ├── 📂icons/
+    │   ├── 📂imgs/
+    │   ├── 📂fonts/
+    ├── 📂utils/
+    │   ├── 📄classes.py
+    │   ├── 📄equações.py
+    ├── 📂firebase/
+    │   ├── 📄auth.py
+    │   ├── 📄config.py
+    │   ├── 📄db.py
+    ├── 📄requirements.txt
+    └── 📄README.md
 
 ```
+<details>
+<summary> <h3> Diretórios e Arquivos </h3> </summary>
 
-### Diretórios e Arquivos
+* 📄 **main.py**:  Arquivo principal, responsável por inicializar e gerenciar a execução do aplicativo.
+* 📄 **routes.py**: Arquivo que contém as rotas e suas configurações.. 
 
-*  **main.py**:  arquivo principal, responsável por inicializar e gerenciar a execução do aplicativo.
+* 📂 **pages/**: Este diretório contém os arquivos de cada página do aplicativo.
 
-* **pages/**: Arquivos relacionados às páginas do aplicativo. Cada arquivo dentro deste diretório representa uma página diferente do aplicativo. Por exemplo, "home.py" representa a página inicial do aplicativo e "settings.py" representa a página de configurações.
+* 📂 **componentes/**:Este diretório contém os arquivos dos componentes reutilizáveis do aplicativo, como botões, inputs, etc.
 
-*  **components/**: Arquivos relacionados aos componentes do aplicativo. Cada arquivo dentro deste diretório representa um componente diferente do aplicativo. Por exemplo, "button.py" representa o componente de botão e "textfield.py" representa o componente de campo de texto.
+* 📂 **assets/**: Arquivos de recursos do aplicativo, como imagens, ícones, etc.
 
-*  **assets/**: Arquivos de recursos do aplicativo, como imagens, ícones, etc.
-
-*  **utils/**: Arquivos de utilitários do aplicativo, como funções de ajuda, configurações, etc.
-    *  **classes.py**:Responsavel por definir as Classes das entidades da aplicação
-    *  **routes.py**: Responsável por configurar as rotas da aplicação.  
+* 📂 **utils/**: Este diretório contém arquivos de utilidade, como classes e funções úteis..
     
-*  **firebase/**: Arquivos relacionados à autenticação e comunicação com o Firebase.
-    *  **auth.py**: Responsável por lidar com a autenticação do usuário.
-    *  **db.py**: Responsável por lidar com a comunicação com o banco de dados do Firebase.
+* 📂 **firebase/**: Arquivos relacionados à autenticação e comunicação com o Firebase.
+    * 📄 **auth.py**: Responsável por lidar com a autenticação do usuário.
+    * 📄 **config.py**: Contém configurações de conexão com o Firebase.
+    * 📄 **db.py**: Responsável por lidar com a comunicação com o banco de dados do Firebase.
     
-*  **config/**: Arquivos de configurações do aplicativo.
-    *  **settings.py**" contém configurações gerais do aplicativo.
-    *  **firebase.py**" contém configurações de conexão com o banco
+* 📄 **requirements.txt**: Dependências do projeto.
+* 📄 **README.md**: Este arquivo é o que você está lendo agora e descreve a estrutura de arquivos do projeto.
+</details>
+
+## Instalação
+
+### Requisitos
+- Git
+- Pip
+- Python 3.8 ou inferior
+- Flet 0.4.2
+
+## Passos
+
+1. Instale o [Git](https://git-scm.com/downloads)
+2. Abra o terminal ou Git Bash e digite o seguinte comando:
+
+    ```
+    git clone https://github.com/maiconrp/estacao-meteorologica.git
+    ```
+
+3. Acesse a pasta test_app
+
+    ```
+   cd estacao-meteorologica\code\testes\teste_app
+    ```
+4. Execute o arquivo install.py
     
-* **requirements.txt**: Dependências do projeto.
-* **README.md**: Documentação do projeto.
+    ```
+   py install.py
+    ```
 
+# Observações
+- Certifique-se de estar usando a versão correta do Python e do Flet
+- Se precisar de mais informações ou tiver dúvidas, consulte a [documentação oficial do Flet][flet].
 
+[flet]: https://flet.dev/docs/

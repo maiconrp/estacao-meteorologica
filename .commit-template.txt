@@ -1,0 +1,39 @@
+
+# Insira sua mensagem de commit acima ^
+# Estrutura do commit: :emoji: tipo: Verbo infinitivo + descrição concisa
+# 
+# Tipo:
+#   feat:     Adicionar nova funcionalidade
+#   fix:      Corrigir bug
+#   docs:     Atualizar documentação
+#   test:     Adicionar teste unitário
+#   build:    Realizar alteração em arquivos de build
+#   perf:     Melhorar performance
+#   style:    Realizar alteração de formatação de código
+#   refactor: Realizar refatoração de código
+#   chore:    Realizar alteração em configuração
+#   ci:       Realizar alteração em integração contínua
+# 
+# 
+# Emoji:
+#   :sparkles:			Nova funcionalidade
+#   :bug:				correção de bug
+#   :books:			    alteração de documentação
+#   :lipstick:			mudanças que não afetam o código
+#   :recycle			mudança de código que não corrige um bug nem adiciona uma funcionalidade
+#   :zap:				mudança de código que melhora o desempenho
+#   :white_check_mark:	adição de testes faltantes ou correção de testes existentes
+#   :construction:		mudanças no processo de build ou ferramentas auxiliares e bibliotecas
+# 
+# Exemplos:
+#   Commit                                              Resultado no GitHub
+#   :tada: Commit inicial                               🎉 Commit inicial
+#   :books: docs: Atualizaçao do README                 📚 docs: Atualizar README
+#   :bug: fix: Loop infinito na linha 50                🐛 fix: Corrigir Loop na linha 50
+#   :sparkles: feat: Pagina de login                    ✨ feat: Adicionar Pagina de login
+#   :bricks: ci: Modificaçao no Dockerfile              🧱 ci: Modificar Dockerfile
+#   :recycle: refactor: Passando para arrow functions   ♻️ refactor: Alterar tipo de dados Model
+#   :zap: perf: Melhoria no tempo de resposta           ⚡ perf: Melhorar tempo de resposta
+#   :boom: fix: Revertendo mudanças ineficientes        💥 fix: Reverter mudanças ineficientes
+#   :lipstick: feat: Estilizaçao CSS do formulario      💄 feat: Estilizar CSS do formulario
+#   :test_tube: test: Criando novo teste                🧪 test: Criar novo teste
