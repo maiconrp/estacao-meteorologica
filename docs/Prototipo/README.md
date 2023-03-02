@@ -9,7 +9,7 @@
  <details>
   <summary>🖥 Ver demonstração </summary>
   <br>
-  <img src="https://github.com/maiconrp/estacao-meteorologica/blob/master/docs/prototipo/demonstracao.gif" width="300" align="right">
+  <img src="https://github.com/maiconrp/estacao-meteorologica/blob/master/docs/Prototipo/demonstracao.gif" width="300" align="right">
 </details> 
 
 ## ✅🖥Telas
