@@ -25,7 +25,7 @@ O projeto possui diversas melhorias, implementando cada vez mais novos recursos.
 
 * ESP32 NODEMCU
 * Módulo Sensor Temperatura e Umidade DHT22
-* Módulo Sensor de Luminosidade TEMT600
+* Módulo Sensor de Luminosidade TEMT6000
 * Sensor de Pressão, Temperatura e altitude BMP280
 * Reed Switch
 
