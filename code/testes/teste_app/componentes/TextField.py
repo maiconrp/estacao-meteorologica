@@ -14,7 +14,7 @@ class TextFieldTemplate:
         suffix_text (str)       Texto que aparece após o valor          ("")
     """
 
-    def __init__(self, label="Texto", value=0, text_align=TextAlign.CENTER, width=175, suffix_text=""):
+    def __init__(self, bgcolor='white', label="Texto", border_radius=25, value=0, text_align=TextAlign.CENTER, width=400, height=70, suffix_text=""):
         self.label = label
         self.value = value
         self.text_align = text_align

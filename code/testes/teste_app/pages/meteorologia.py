@@ -22,5 +22,4 @@ class MeteorologiaPage:
                 ],
                 vertical_alignment = ft.MainAxisAlignment.CENTER,
                 horizontal_alignment=ft.CrossAxisAlignment.CENTER
-
             )
