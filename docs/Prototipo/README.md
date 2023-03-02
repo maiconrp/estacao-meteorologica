@@ -23,11 +23,9 @@ O protótipo contém as seguintes telas:
 
 O protótipo pode ser visualizado no Figma, onde é possível interagir com as telas:
 
-🚀 Link para visualização [aqui][view]
-<details>
-  <summary>🖥 Gif demonstrativo</summary>
+🚀 Link para visualização [aqui][proto]
+
+🖥 Gif demonstrativo <a href="https://github.com/maiconrp/estacao-meteorologica/blob/master/docs/Prototipo/Demonstracao_Interativa.gif" target="_blank">aqui</a>
   
-  <img src="https://github.com/maiconrp/estacao-meteorologica/blob/master/docs/Prototipo/Demonstracao_Interativa.gif" width="300">
-</details> 
-  
-[view]: https://www.figma.com/proto/UwVhTLyeelkN7V9kHQi0A6/Esta%C3%A7%C3%A3o-Meteorol%C3%B3gica?node-id=132%3A2025&scaling=scale-down&page-id=132%3A1793&starting-point-node-id=132%3A2025
+[proto]: https://www.figma.com/proto/UwVhTLyeelkN7V9kHQi0A6/Esta%C3%A7%C3%A3o-Meteorol%C3%B3gica?node-id=132%3A2025&scaling=scale-down&page-id=132%3A1793&starting-point-node-id=132%3A2025
+[gif]: https://github.com/maiconrp/estacao-meteorologica/blob/master/docs/Prototipo/Demonstracao_Interativa.gif
