@@ -6,7 +6,12 @@
 ![Issues](https://img.shields.io/github/issues/maiconrp/Estacao-Meterorologic?labelColor=white&color=darkgreen&style=for-the-badge)
 ![Last Commit](https://img.shields.io/github/last-commit/maiconrp/Estacao-Meterorologic?display_timestamp=committer&labelColor=white&color=darkgreen&style=for-the-badge)
 
-Este projeto visa desenvolver um sistema de monitoramento de irrigação via estação meteorológica conectada à internet (IoT). Os valores coletados pela estação, enviados para um banco de dados, são utilizados na mensuraração da necessidade hídrica da plantação, que por sua vez, é exibido em uma aplicação (PWA)  e esses dados serem enviados para o servidor para possibilitar a visualização do seu histórico. Para informações mais detalhadas, veja a [documentação][docs]
+Este projeto visa desenvolver um sistema de monitoramento de irrigação via estação meteorológica conectada à internet (IoT). Os valores coletados pela estação, enviados para um banco de dados, são utilizados na mensuraração da necessidade hídrica da plantação, que por sua vez, é exibido em uma aplicação (PWA)  e esses dados serem enviados para o servidor para possibilitar a visualização do seu histórico. Para informações mais detalhadas, veja a documentação
+
+**Links Úteis:** 
+[Protótipo](https://github.com/maiconrp/estacao-meteorologica/tree/master/docs/Prototipo#readme) | 
+[Code](https://github.com/maiconrp/estacao-meteorologica/tree/test/flet-UserControl/code/testes/teste_app) | 
+[Documentação][docs]
 
 ## Funcionalidades:
 * [ ] Cadastro e Autenticação de produtor
