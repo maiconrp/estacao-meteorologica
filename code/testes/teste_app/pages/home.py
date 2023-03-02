@@ -1,8 +1,8 @@
 import flet as ft
-from componentes.Container import Irrigacao, Evapotranspiracao, Economia
 from componentes.NavigationBar import navigation_bar
 from componentes.AppBar import appbar
 from componentes.botões.ElevatedButton import HomeButton
+from componentes.Container import container_home
 
 # page
 # page.go
@@ -12,18 +12,6 @@ class HomePage:
         return ft.View(
                 "/",
                 [
-                    appbar,
-                    HomeButton,
-                    ft.Row(
-                        [
-                            Irrigacao,
-                            Economia
-                        ]
-                    ),            
-                    Evapotranspiracao,                  
-                    navigation_bar
+                    container_home
                 ],
             )
-
-
-      
