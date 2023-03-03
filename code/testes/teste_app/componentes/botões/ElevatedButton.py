@@ -21,7 +21,7 @@ class ElevatedButtonTemplate:
     def __init__(
         self, 
         autofocus=False, 
-        bgcolor=ft.colors.PRIMARY, 
+        bgcolor='white', 
         color=ft.colors.WHITE,
         content=None,
         elevation=2,
@@ -65,7 +65,10 @@ class ElevatedButtonTemplate:
 
 # Criação de botões elevados com configurações comuns
 HomeButton = ElevatedButtonTemplate(text="Estou em home").build()
-LoginButton = ElevatedButtonTemplate(text="Estou em login").build()
+LoginButton = ElevatedButtonTemplate(
+    text="Perfil",
+    icon=(ft.Image(src=f"/icons/icon.png")),
+    ).build()
 
 ElevatedButton = ElevatedButtonTemplate(text="Go to Login").build()
 ElevatedButton2 = ElevatedButtonTemplate(text="Go to HOME").build()
