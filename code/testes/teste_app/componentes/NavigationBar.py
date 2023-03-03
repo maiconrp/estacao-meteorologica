@@ -12,7 +12,7 @@ class NavigationBarTemplate:
         destinations   (List[NavigationDestination])   lista de destinos de navegação
     """
 
-    def __init__(self, destinations, bgcolor='white', width=390, height=70, border_radius=10):
+    def __init__(self, destinations, bgcolor='#FFFFFF', width=390, height=70, border_radius=10):
         self.destinations = destinations
         self.bgcolor = bgcolor
         self.width = width
@@ -34,12 +34,13 @@ class NavigationBarTemplate:
             )
     
 destinations = [
-    ft.NavigationDestination(ft.Image(src=f"/icons/culturaIcon.png"), label="Cultura"),
+    ft.NavigationDestination(icon=(ft.Image(src=f"/icons/culturaIcon.png")), label="Cultura"),
     ft.NavigationDestination(icon=ft.icons.EXPLORE, label="Home"),
-    ft.NavigationDestination(icon=ft.icons.COMMUTE, label="Perfil"),
+    ft.NavigationDestination(icon=(ft.Image(src=f"/icons/icon.png")), label="Perfil"),
 ]
 
 navigation_bar = NavigationBarTemplate(
     destinations,
+    bgcolor = 'white',
     border_radius = border_radius.only(bottomLeft=15, bottomRight=15)
     ).build()
