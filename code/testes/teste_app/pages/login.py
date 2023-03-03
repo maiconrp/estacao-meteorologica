@@ -8,8 +8,6 @@ class LoginPage:
         return ft.View(
                 "/login",
                 [
-                    appbar,
-                    LoginButton,
-                    navigation_bar
+                   
                 ],
             )

@@ -11,10 +11,7 @@ class CulturaPage:
     def build():
         return ft.View(
                 "/cultura",
-                [
-                    appbar,
-                    HomeButton,
-                    container_cultura,
-                    navigation_bar
+                [              
+                    container_cultura,  
                 ],
             )
