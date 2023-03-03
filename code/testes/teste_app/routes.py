@@ -5,9 +5,8 @@ from pages.cultura import CulturaPage
 class Route:
     # Define as rotas disponíveis no aplicativo, com o caminho da rota como chave e o destino (página ou componente) como valor
     ROUTES = {
-        "/": HomePage.build(), # Rota para a página inicial
-        "/login": LoginPage.build(), # Rota para a página de login
-        "/cultura": CulturaPage.build() # Rota para a página de meteorologia
+        "/cultura": CulturaPage.build(), # Rota para a página de meteorologia
+        "/": HomePage.build(), # Rota para a página inicial     
     }
 
     @classmethod
