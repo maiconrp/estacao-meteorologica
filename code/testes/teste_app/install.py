@@ -1,50 +1,53 @@
-import platform
 import os
+import platform
 import subprocess
 import sys
 from pathlib import Path
 
 
 def bem_vind():
-    msg =[
-    "\n[NOTA]\n",
-    "#  Sejam bem-vindos ao projeto!\n",
-    "#  Gostaríamos de informar que a versão atual do código está na fase de testes,",
-    "#  o que significa que pode haver alguns bugs e problemas de funcionamento.\n",
-    "#  Pedimos que, caso encontrem algum problema ou tenham sugestões de melhoria,",
-    "#  não hesitem em entrar em contato conosco. Estamos sempre abertos a feedbacks ",
-    "#  construtivos que possam nos ajudar a aprimorar o nosso produto.\n",
-    "#  Agradecemos desde já pelo interesse em nosso projeto e contamos com a colaboração de todos para torná-lo ainda melhor.\n",
-    "#  Atenciosamente,",
-    "#  A equipe de desenvolvimento.!"
-
-
-    "\n\nInstalação:"
+    """
+    Função que escreve uma mensagem de bem vindo(a).
+    A msg é uma lista que é printada usando o metodo de descompactação do python
+    """
+    msg = [
+        "\n[NOTA]\n",
+        "#  Sejam bem-vindos ao projeto!\n",
+        "#  Gostaríamos de informar que a versão atual do código está na fase de testes,",
+        "#  o que significa que pode haver alguns bugs e problemas de funcionamento.\n",
+        "#  Pedimos que, caso encontrem algum problema ou tenham sugestões de melhoria,",
+        "#  não hesitem em entrar em contato conosco. Estamos sempre abertos a feedbacks ",
+        "#  construtivos que possam nos ajudar a aprimorar o nosso produto.\n",
+        "#  Agradecemos desde já pelo interesse em nosso projeto e contamos com a colaboração de todos para torná-lo ainda melhor.\n",
+        "#  Atenciosamente,",
+        "#  A equipe de desenvolvimento.!" "\n\nInstalação:",
     ]
-    
 
     print(*msg, sep="\n")
-    
+
 
 def print_step(msg: str, status: Optional[str] = "info"):
-    
+    """
+    Função que imprime msg de texto de forma personalizada
+    """
     color = {
-        'success': '\033[1;32m',  # verde
-        'error': '\033[1;31m',  # vermelho
-        'info': '\033[1;37m',  # branco
+        "success": "\033[1;32m",  # verde
+        "error": "\033[1;31m",  # vermelho
+        "info": "\033[1;37m",  # branco
     }
-    end_color = '\033[0m'
+    end_color = "\033[0m"
 
     status_msg = {
-        'success': '[OK]',
-        'error': '[X]',
-        'info': '[I]',
+        "success": "[OK]",
+        "error": "[X]",
+        "info": "[I]",
     }
 
     if status == "info":
         print(f"{status_msg[status]} {msg}")
     else:
         print(f"{color[status]}{status_msg[status]} {msg}{end_color}")
+
 
 def create_virtual_env():
     """
@@ -53,7 +56,9 @@ def create_virtual_env():
     print_step("Configurando ambiente virtual...")
 
     python_cmd = "python" if platform.system() == "Windows" else "python3"
-    venv_cmd = "py -3.8 -m venv" if platform.system() == "Windows" else "python3.8.6 -m venv"
+    venv_cmd = (
+        "py -3.8 -m venv" if platform.system() == "Windows" else "python3.8.6 -m venv"
+    )
 
     venv_path = Path("venv")
     if not venv_path.exists():
@@ -122,7 +127,7 @@ def run_main():
 
 
 def main():
-    """ 
+    """
     Função principal.
     """
     bem_vind()
