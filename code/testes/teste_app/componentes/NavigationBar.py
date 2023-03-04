@@ -1,4 +1,5 @@
 from flet import NavigationBar, NavigationDestination, icons
+
 import flet as ft
 from flet import *
 
@@ -33,8 +34,8 @@ class NavigationBarTemplate:
             )
     
 destinations = [
-    ft.NavigationDestination(Image(src=f"/icons/culture.svg"), label="Cultura"),
-    ft.NavigationDestination(Image(src=f"/icons/home.svg"), label="Home"),
+    ft.NavigationDestination(icon=ft.icons.EXPLORE, label="Cultura"),
+    ft.NavigationDestination(icon=ft.icons.EXPLORE, label="Home"),
     ft.NavigationDestination(icon=(ft.Image(src=f"/icons/icon.png")), label="Perfil"),
 ]
 
