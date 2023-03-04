@@ -7,12 +7,15 @@ from componentes.botões.ElevatedButton import ElevatedButton
 from componentes.TextField import pressao, radiacao, temperatura, umidade, vento
 from config.firebase import database
 
+
 # Import da classe de rotas
 from routes import Route
 
 def main(page: ft.Page):
     # Função para configurar o título, alinhamento horizontal e modo de tema da página
     def config():
+        page.window_width = 385.0
+        page.window_height = 704.0
         page.title = "Estacao Meteorologica"
         page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
         page.theme_mode = "dark"
@@ -75,7 +78,11 @@ def main(page: ft.Page):
         # Ir para a rota da vista no topo da lista
         page.go(top_view.route)
 
+
     config()
     set_events()
 
-ft.app(target=main)
+ft.app(
+    target=main,
+    assets_dir="assets"
+)
