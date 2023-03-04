@@ -3,19 +3,6 @@ from flet import *
 from flet import TextField, TextAlign
 from componentes.NavigationBar import navigation_bar
 
-"""page_container = Row(
-    controls=[
-        content=Column(
-            controls=[
-
-            ]
-        )
-    ]
-)"""
-
-
-
-
 class TextTemplate:
     """
     Classe para criar campos de texto com configurações comuns
@@ -50,34 +37,12 @@ class TextTemplate:
             value=self.value,
             width=self.width,
             height=self.height,
-           # margin = self.margin,
             color = self.color,
             size = self.size,
             weight = self.weight
         )
 
-
 # Criação de campos de texto com configurações comuns
-
-
-cultura = TextTemplate(
-    value="Milho",
-    size=22,
-    weight=FontWeight.W_700, 
-    height=35,            
-).build()
-
-plantio = TextTemplate(
-    value="Plantio: 25/08/2022",         
-).build()
-
-area = TextTemplate(
-    value="Área: 5000m²",            
-).build()
-
-estagio = TextTemplate(
-    value="Estágio: Maturação",          
-).build()
 
 card_cultura = Container(
     bgcolor = 'white',
@@ -89,8 +54,12 @@ card_cultura = Container(
     content = Row(vertical_alignment = CrossAxisAlignment.CENTER,
         controls=[
             Container(
-                Icon(icons.ENERGY_SAVINGS_LEAF_ROUNDED, color='#00D154', size=65),
-                margin = margin.only(right=10),
+                Image(
+                    src=f"/icons/corn.png",
+                    width=300,
+                    height=300,
+                ),  
+                margin = margin.only(left=-60, right=-180),
             ),
             Column(alignment = MainAxisAlignment.CENTER,
                 controls=[
@@ -141,7 +110,11 @@ card_irrigacao = Container(
                             margin = margin.only(right=7),                              
                             content = ft.Text('Irrigação', color='#000000', size=12, weight=FontWeight.W_700), 
                         ),
-                        Icon(name='settings', color='#00D154', size=16),
+                        Image(
+                            src=f"/icons/watch.svg",
+                            width=20,
+                            height=20,
+                        ), 
                     ]
                 ),
                 Container(                           
@@ -177,8 +150,11 @@ card_economia = Container(
                                     content = ft.Text('Economia', color='#000000', size=12, weight=FontWeight.W_700) 
                                                                                                       
                                 ),
-
-                                Icon(name='settings', color='#00D154', size=16),
+                                Image(
+                                    src=f"/icons/percentage.svg",
+                                    width=20,
+                                    height=20,
+                                ), 
                             ]
                         ),
                         Container(
@@ -193,81 +169,6 @@ card_economia = Container(
                 ),
             ),
 )
-
-"""card_irrigacao = Container(
-    Row(
-        controls=[
-            Container(
-                bgcolor = 'white',
-                height=140,
-                width=140,
-                border_radius = 11,
-                padding = padding.only(top=14, left=17, right=17, bottom=22),
-                content=Column(
-                    controls=[
-                        Row(
-                            controls=[
-                                Container(
-                                    bgcolor = '#EBEBF0',
-                                    height=24,
-                                    width=75,
-                                    border_radius = 20,  
-                                    alignment = alignment.center,
-                                    margin = margin.only(right=7),                              
-                                    content = ft.Text('Irrigação', color='#000000', size=12, weight=FontWeight.W_700), 
-                                ),
-                                                Icon(name='settings', color='#00D154', size=16),
-                            ]
-                        ),
-                        Container(                           
-                            Text(value='1h30', color='#000000', size=39, weight=FontWeight.W_700),
-                            margin = margin.only(top=-10)
-                        ), 
-                        Container(
-                            Text(value='Tempo ideal de irrigação para hoje', color='#000000', size=11, weight=FontWeight.W_400)
-                        ), 
-                    ]           
-                ),
-            ),
-            Container(
-                bgcolor = 'white',
-                height=140,
-                width=140,
-                border_radius = 11,
-                padding = padding.only(top=14, left=17, right=17, bottom=22),
-                content=Column(
-                    controls=[
-                        Row(
-                            controls=[
-                                Container(                   
-                                    bgcolor = '#EBEBF0',
-                                    height=24,
-                                    width=75,
-                                    border_radius = 20, 
-                                    alignment = alignment.center, 
-                                    margin = margin.only(right=7), 
-                                    content = ft.Text('Economia', color='#000000', size=12, weight=FontWeight.W_700) 
-                                                                                                      
-                                ),
-
-                                Icon(name='settings', color='#00D154', size=16),
-                            ]
-                        ),
-                        Container(
-                            Text(value='27%', color='#000000', size=39, weight=FontWeight.W_700),
-                            margin = margin.only(top=-10)
-                        ), 
-                        Container(
-                            Text(value='760 litros', color='#000000', size=11, weight=FontWeight.W_400),
-                            Text(value='economizados', color='#000000', size=11, weight=FontWeight.W_400)
-                        ), 
-                    ]
-                ),
-            ),
-        ]
-    )
-)"""
-
 
 card_ET = Container(
     bgcolor = 'white',
@@ -290,7 +191,11 @@ card_ET = Container(
                         controls = [
                             Row(alignment = MainAxisAlignment.CENTER,
                                 controls=[
-                                    Icon(name='settings', color='#00D154', size=16),
+                                    Image(
+                                        src=f"/icons/gotinha.svg",
+                                        width=16,
+                                        height=16,
+                                    ), 
                                     Container(                   
                                         content = ft.Text('Referencia', color='#000000', size=12, weight=FontWeight.W_700),
                                         margin=margin.only(left=-9),
@@ -312,9 +217,13 @@ card_ET = Container(
                         controls = [
                             Row(alignment = MainAxisAlignment.CENTER,
                                 controls=[
-                                    Icon(name='settings', color='#00D154', size=16),
+                                    Image(
+                                        src=f"/icons/plantinha.svg",
+                                        width=16,
+                                        height=16,
+                                    ), 
                                     Container(                   
-                                        content = ft.Text('Referencia', color='#000000', size=12, weight=FontWeight.W_700),
+                                        content = ft.Text('Cultura', color='#000000', size=12, weight=FontWeight.W_700),
                                         margin=margin.only(left=-9),
                                         alignment = alignment.center,                                                                     
                                     ),
@@ -351,8 +260,7 @@ home_page_container = Container(
                         border_radius = 20, 
                         content=Row(alignment = MainAxisAlignment.CENTER,
                             controls=[
-                                Text(value='Estação', color='#000000', size=13),
-                                Icon(name='settings', color='#00D154', size=16)
+                                ElevatedButton("Estação", icon=Icon(name='settings', color='#00D154', size=16)),     
                             ]
                         )   
                     ),                                         
@@ -366,12 +274,8 @@ home_page_container = Container(
                 content=card_cultura,  
                 elevation=4,           
             ),
-            Container(
-                content=line,
-            ),
-            Container(
-                content=relatorio,
-            ),
+            line,
+            relatorio,
             Row(
                 controls=[
                     Card(
@@ -393,7 +297,6 @@ home_page_container = Container(
     )
 )
 
-
 container_home = Container(
     width=350,
     height=650,
@@ -402,18 +305,6 @@ container_home = Container(
     padding = padding.only(top=20, left=23, right=23, bottom=0),
     content=home_page_container
 )
-
-
-
-
-
-
-
-
-
-
-
-
 
 cultura_page = Container(
     content = Column(
