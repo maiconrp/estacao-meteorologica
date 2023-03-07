@@ -3,7 +3,7 @@ import flet as ft
 
 class ElevatedButtonTemplate:
     """Classe para criar botões elevados com configurações comuns
-    
+
     Atributos:
         ATRIBUTO    TIPO        DEFINIÇÃO                       DEFAULT
         autofocus   (bool):     Se o botão tem autofoco         (False)
@@ -19,9 +19,9 @@ class ElevatedButtonTemplate:
     """
 
     def __init__(
-        self, 
-        autofocus=False, 
-        bgcolor='white', 
+        self,
+        autofocus=False,
+        bgcolor="white",
         color=ft.colors.WHITE,
         content=None,
         elevation=2,
@@ -29,9 +29,9 @@ class ElevatedButtonTemplate:
         icon_color=ft.colors.PRIMARY,
         style=None,
         text="Button",
-        tooltip=None
-        ):
-        
+        tooltip=None,
+    ):
+
         self.autofocus = autofocus
         self.bgcolor = bgcolor
         self.color = color
@@ -46,11 +46,11 @@ class ElevatedButtonTemplate:
     def build(self):
         """
         Cria um objeto <ElevatedButton> com as configurações especificadas no construtor
-        
+
         Retorna: ElevatedButton: botão elevado criado
         """
         return ft.ElevatedButton(
-            autofocus=self.autofocus, 
+            autofocus=self.autofocus,
             bgcolor=self.bgcolor,
             color=self.color,
             content=self.content,
@@ -59,8 +59,8 @@ class ElevatedButtonTemplate:
             icon_color=self.icon_color,
             style=self.style,
             text=self.text,
-            tooltip=self.tooltip
-            )
+            tooltip=self.tooltip,
+        )
 
 
 # Criação de botões elevados com configurações comuns
@@ -68,7 +68,7 @@ HomeButton = ElevatedButtonTemplate(text="Estou em home").build()
 LoginButton = ElevatedButtonTemplate(
     text="Perfil",
     icon=(ft.Image(src=f"/icons/icon.png")),
-    ).build()
+).build()
 
 ElevatedButton = ElevatedButtonTemplate(text="Go to Login").build()
 ElevatedButton2 = ElevatedButtonTemplate(text="Go to HOME").build()

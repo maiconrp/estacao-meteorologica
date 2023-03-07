@@ -1,68 +1,88 @@
-from flet import *
+import flet as ft
+from flet import (
+    AppBar,
+    FilledTonalButton,
+    FontWeight,
+    Icon,
+    Row,
+    Text,
+    UserControl,
+    Column,
+    Container,
+)
+import assets.colors
 
-class AppBarTemplate:
+estacao = Container(
+    width=70,
+    height=25,
+    margin=ft.margin.only(right=25.0),
+    content=Container(
+        bgcolor=assets.colors.WIDGET,
+        padding=ft.padding.symmetric(horizontal=10),
+        border_radius=100,
+        content=Row(
+            spacing=3,
+            controls=[
+                Text(
+                    value="Estação", color="#000000", size=10, weight=FontWeight.W_600
+                ),
+                Icon("settings", color=assets.colors.PRIMARY_GREEN, size=10),
+            ],
+        ),
+    ),
+)
+
+
+class AppBarTemplate(AppBar):
     """
     Classe para criar uma barra de aplicativo com configurações comuns
 
     Atributos:
         ATRIBUTO       TIPO        DEFINIÇÃO                                                             DEFAULT
-        leading        (Any):      Elemento a ser exibido à esquerda da barra de aplicativo                 (None)
-        leading_width  (int):      Largura do elemento à esquerda                                          (None)
         title          (Any):      Título da barra de aplicativo                                           (None)
-        center_title   (bool):     Se o título está centralizado na barra de aplicativo                     (True)
         bgcolor        (Color):    Cor de fundo da barra de aplicativo                                     (colors.PRIMARY)
         actions        (list):     Lista de elementos a serem exibidos à direita da barra de aplicativo     (None)
     """
-
     def __init__(
         self,
-        leading=None,
-        leading_width=None,
-        height_width=None,
-        title=None,
-        center_title=True,
-        bgcolor=colors.PRIMARY,
-        actions=None
-
+        title=Container(
+            content=Column(
+                controls=[
+                    Text(
+                        value="Olá, Victor",
+                        color="#000000",
+                        size=20,
+                        weight=FontWeight.W_700,
+                    ),
+                    Text(
+                        value="Quinta, 26 de janeiro",
+                        color="#000000",
+                        size=10,
+                    ),
+                ],
+                spacing=3,
+            ),
+            margin=10.0,
+        ),
+        bgcolor="transparent",
+        actions=[estacao],
     ):
-        self.leading = leading
-        self.leading_width = leading_width
-        self.height_width = height_width
+        """
+        Construtor da classe AppBarTemplate. Define os atributos title, bgcolor e actions da AppBar.
+
+        Atributos:
+        ATRIBUTO       TIPO        DEFINIÇÃO                                                             DEFAULT
+        title          (Any):      Título da barra de aplicativo                                           (None)
+        bgcolor        (Color):    Cor de fundo da barra de aplicativo                                     (colors.PRIMARY)
+        actions        (list):     Lista de elementos a serem exibidos à direita da barra de aplicativo     (None)
+        
+        Returns:
+            Nenhum retorno.
+        """
+        super().__init__()
         self.title = title
-        self.center_title = center_title
         self.bgcolor = bgcolor
         self.actions = actions
 
-    def build(self):
-        """
-        Cria um objeto <AppBar> com as configurações especificadas no construtor
 
-        Retorna: AppBar: barra de aplicativo criada
-        """
-        return AppBar(
-            leading=self.leading,
-            leading_width=self.leading_width,
-            title=self.title,
-            center_title=self.center_title,
-            bgcolor=self.bgcolor,
-            actions=self.actions
-        )
-
-appbar = AppBarTemplate(
-    leading_width=40,
-    height_width=30,
-    title=Text("Estação Metereológica"),
-    center_title=False,
-    bgcolor=colors.BLUE,
-    actions=[
-       
-        
-        PopupMenuButton(
-            items=[
-                PopupMenuItem(text="Item 1"),
-                PopupMenuItem(),  # divider
-            ]
-        ),
-    ],
-).build()
-
+appbar = AppBarTemplate()
