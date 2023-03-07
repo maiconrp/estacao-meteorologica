@@ -8,5 +8,5 @@ class LoginPage:
     def build():
         return ft.View(
             "/login",
-            [],
+            [appbar, navigation_bar],
         )
