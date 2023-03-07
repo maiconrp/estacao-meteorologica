@@ -14,7 +14,17 @@ class TextFieldTemplate:
         suffix_text (str)       Texto que aparece após o valor          ("")
     """
 
-    def __init__(self, bgcolor='white', label="Texto", border_radius=25, value=0, text_align=TextAlign.CENTER, width=400, height=70, suffix_text=""):
+    def __init__(
+        self,
+        bgcolor="white",
+        label="Texto",
+        border_radius=25,
+        value=0,
+        text_align=TextAlign.CENTER,
+        width=400,
+        height=70,
+        suffix_text="",
+    ):
         self.label = label
         self.value = value
         self.text_align = text_align
@@ -32,7 +42,7 @@ class TextFieldTemplate:
             value=self.value,
             text_align=self.text_align,
             width=self.width,
-            suffix_text=self.suffix_text
+            suffix_text=self.suffix_text,
         )
 
 
@@ -40,26 +50,13 @@ class TextFieldTemplate:
 
 
 pressao = TextFieldTemplate(
-    label="Pressão",                # Descrição
-    suffix_text="hPa"               # texto atras do valor, complemento
+    label="Pressão", suffix_text="hPa"  # Descrição  # texto atras do valor, complemento
 ).build()
 
-radiacao = TextFieldTemplate(
-    label="Radiacao",
-    suffix_text="W/m²"
-).build()
+radiacao = TextFieldTemplate(label="Radiacao", suffix_text="W/m²").build()
 
-temperatura = TextFieldTemplate(
-    label="Temperatura",
-    suffix_text="°C"
-).build()
+temperatura = TextFieldTemplate(label="Temperatura", suffix_text="°C").build()
 
-umidade = TextFieldTemplate(
-    label="Umidade",
-    suffix_text="%"
-).build()
+umidade = TextFieldTemplate(label="Umidade", suffix_text="%").build()
 
-vento = TextFieldTemplate(
-    label="Vento",
-    suffix_text="km/h"
-).build()
+vento = TextFieldTemplate(label="Vento", suffix_text="km/h").build()
