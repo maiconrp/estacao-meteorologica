@@ -43,6 +43,7 @@ class AppBarTemplate(AppBar):
         bgcolor        (Color):    Cor de fundo da barra de aplicativo                                     (colors.PRIMARY)
         actions        (list):     Lista de elementos a serem exibidos à direita da barra de aplicativo     (None)
     """
+
     def __init__(
         self,
         title=Container(
@@ -75,7 +76,7 @@ class AppBarTemplate(AppBar):
         title          (Any):      Título da barra de aplicativo                                           (None)
         bgcolor        (Color):    Cor de fundo da barra de aplicativo                                     (colors.PRIMARY)
         actions        (list):     Lista de elementos a serem exibidos à direita da barra de aplicativo     (None)
-        
+
         Returns:
             Nenhum retorno.
         """
