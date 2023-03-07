@@ -1,12 +1,11 @@
 from pages.home import HomePage
-from pages.login import LoginPage
-from pages.cultura import CulturaPage
-    
+from pages.auth.login import LoginPage
+
+
 class Route:
     # Define as rotas disponíveis no aplicativo, com o caminho da rota como chave e o destino (página ou componente) como valor
     ROUTES = {
-        "/cultura": CulturaPage.build(), # Rota para a página de meteorologia
-        "/": HomePage.build(), # Rota para a página inicial     
+        "/": HomePage.build(),  # Rota para a página inicial
     }
 
     @classmethod
@@ -18,4 +17,3 @@ class Route:
     def get_routes(cls):
         # Retorna uma lista de todas as rotas disponíveis no aplicativo
         return list(cls.ROUTES.keys())
-
