@@ -1,35 +1,20 @@
 import flet as ft
 
 import assets.colors
-
 from componentes.AppBar import appbar
 from componentes.botões.ElevatedButton import ElevatedButton
 from componentes.NavigationBar import navigation_bar
 from componentes.TextField import pressao, radiacao, temperatura, umidade, vento
+from config import settings
 from config.firebase import database
-
 from routes import Route
 
 
 def main(page: ft.Page):
+    page.add(settings.PageConfig())
+    rotas = Route()
 
-    # Função para configurar o título, alinhamento horizontal e modo de tema da página
-    def config():
-        page.window_width = 385.0
-        page.window_height = 704.0
-
-        page.window_always_on_top = True
-        page.scroll = "auto"
-        page.title = "Estacao Meteorologica"
-        page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
-        page.theme_mode = "light"
-        page.theme = ft.theme.Theme(
-            color_scheme_seed=assets.colors.BACKGROUND2, use_material3=True
-        )
-        page.bgcolor = assets.colors.BACKGROUND2
-        page.on_route_change = route_change
-        page.on_view_pop = view_pop
-        page.go(page.route)
+    page.add(rotas)
 
     # Função para definir os eventos dos componentes
     def set_events():
@@ -62,30 +47,9 @@ def main(page: ft.Page):
         print("e control:", e.control.selected_index)
 
         # Lista de rotas
-        rotas = Route.get_routes()
-
         # Ir para a rota selecionada
-        page.go(rotas[index])
+        rotas.go_route(index)
 
-    # Função para tratar a mudança de rota
-    def route_change(route):
-        # Limpar a lista de vistas
-        page.views.clear()
-        # Adicionar a vista destino à lista
-        page.views.append(Route.get_destiny(page.route))
-        # Atualizar a página
-        page.update()
-
-    # Função que remove a última vista da lista
-    def view_pop(view):
-        # Remover a última vista da lista
-        page.views.pop()
-        # Obter a vista no topo da lista
-        top_view = page.views[-1]
-        # Ir para a rota da vista no topo da lista
-        page.go(top_view.route)
-
-    config()
     set_events()
 
 
