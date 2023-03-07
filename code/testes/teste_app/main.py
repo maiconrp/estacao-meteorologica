@@ -1,24 +1,32 @@
 import flet as ft
 
-# Import dos componentes da aplicação
+import assets.colors
+
 from componentes.AppBar import appbar
-from componentes.NavigationBar import navigation_bar
 from componentes.botões.ElevatedButton import ElevatedButton
+from componentes.NavigationBar import navigation_bar
 from componentes.TextField import pressao, radiacao, temperatura, umidade, vento
 from config.firebase import database
 
-
-# Import da classe de rotas
 from routes import Route
 
+
 def main(page: ft.Page):
+
     # Função para configurar o título, alinhamento horizontal e modo de tema da página
     def config():
         page.window_width = 385.0
         page.window_height = 704.0
+
+        page.window_always_on_top = True
+        page.scroll = "auto"
         page.title = "Estacao Meteorologica"
         page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
-        page.theme_mode = "dark"
+        page.theme_mode = "light"
+        page.theme = ft.theme.Theme(
+            color_scheme_seed=assets.colors.BACKGROUND2, use_material3=True
+        )
+        page.bgcolor = assets.colors.BACKGROUND2
         page.on_route_change = route_change
         page.on_view_pop = view_pop
         page.go(page.route)
@@ -27,20 +35,19 @@ def main(page: ft.Page):
     def set_events():
 
         # Evento de clique na ação de menu de appbar
-        
 
         # Evento de clique no botão ElevatedButton
-        ElevatedButton.on_click=lambda _: page.go("/login")
+        ElevatedButton.on_click = lambda _: page.go("/login")
 
         # Evento de mudança de seleção na barra de navegação
         navigation_bar.on_change = navigation_bar_change
 
         # Eventos de mudança nos campos de texto
-        pressao.on_change       =   lambda _: page.update() 
-        radiacao.on_change      =   lambda _: page.update() 
-        temperatura.on_change   =   lambda _: page.update() 
-        umidade.on_change       =   lambda _: page.update() 
-        vento.on_change         =   lambda _: page.update() 
+        pressao.on_change = lambda _: page.update()
+        radiacao.on_change = lambda _: page.update()
+        temperatura.on_change = lambda _: page.update()
+        umidade.on_change = lambda _: page.update()
+        vento.on_change = lambda _: page.update()
 
     # Função para verificar se o item de menu foi clicado
     def check_item_clicked(e):
@@ -59,7 +66,7 @@ def main(page: ft.Page):
 
         # Ir para a rota selecionada
         page.go(rotas[index])
-        
+
     # Função para tratar a mudança de rota
     def route_change(route):
         # Limpar a lista de vistas
@@ -78,11 +85,8 @@ def main(page: ft.Page):
         # Ir para a rota da vista no topo da lista
         page.go(top_view.route)
 
-
     config()
     set_events()
 
-ft.app(
-    target=main,
-    assets_dir="assets"
-)
+
+ft.app(target=main, assets_dir="assets")
