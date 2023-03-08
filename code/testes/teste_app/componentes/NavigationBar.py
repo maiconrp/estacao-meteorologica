@@ -1,31 +1,20 @@
-from flet import NavigationBar, NavigationDestination, icons
+from flet import (
+    NavigationBar,
+    NavigationBarLabelBehavior,
+    NavigationDestination,
+    Image,
+    UserControl,
+    border_radius,
+    Container,
+)
+import config.routes
 
-import flet as ft
-from flet import *
 
-destinations = [
-    ft.NavigationDestination(
-        icon_content=Image(
-            src=f"assets/icons/navbar/plant.svg",
-            width=16,
-        ),
-        label="Cultura",
-    ),
-    ft.NavigationDestination(
-        icon_content=Image(
-            src=f"assets/icons/navbar/home.svg",
-            width=20,
-        ),
-        label="Home",
-    ),
-    ft.NavigationDestination(
-        icon_content=Image(
-            src=f"assets/icons/navbar/user.svg",
-            width=16,
-        ),
-        label="Perfil",
-    ),
-]
+class NavigationDestinationTemplate(NavigationDestination):
+    def __init__(self, icon, label="Cultura", width=16):
+        super().__init__()
+        self.label = label
+        self.icon_content = Image(src=f"assets/icons/navbar/{icon}.svg", width=width)
 
 
 class NavigationBarTemplate(NavigationBar):
@@ -39,19 +28,18 @@ class NavigationBarTemplate(NavigationBar):
 
     def __init__(
         self,
-        destinations=destinations,
+        destinations=[
+            NavigationDestinationTemplate(label="Cultura", icon="plant"),
+            NavigationDestinationTemplate(label="Home", icon="home"),
+            NavigationDestinationTemplate(label="Perfil", icon="user"),
+        ],
         bgcolor="#FFFFFF",
-        width=390,
         height=70,
-        border_radius=border_radius.only(bottomLeft=15, bottomRight=15),
-        **kwargs,
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         self.destinations = destinations
         self.bgcolor = bgcolor
-        self.width = width
         self.height = height
-        self.border_radius = border_radius
 
 
 navigation_bar = NavigationBarTemplate()
