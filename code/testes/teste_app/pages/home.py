@@ -5,6 +5,7 @@ from componentes.botões.ElevatedButton import HomeButton
 from componentes.Container import *
 from componentes.Container import card_cultura
 
+
 class HomePage:
     def build():
         return ft.View(
