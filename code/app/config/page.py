@@ -1,6 +1,7 @@
 import flet as ft
-from flet import UserControl
+from flet import UserControl, Theme
 import assets.colors
+import assets.fonts.config
 
 class PageConfig(UserControl):
     def did_mount(self):
@@ -27,7 +28,9 @@ class PageConfig(UserControl):
             color_scheme_seed=assets.colors.BACKGROUND2, use_material3=True
         )
         # Atualiza a página
+        self.page.fonts = assets.fonts.config.load()
         self.page.update()
+        print(self.page.fonts)
 
     def build(self):
         """
