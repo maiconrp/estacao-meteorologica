@@ -119,7 +119,7 @@ def run_main():
     print_step("Executando main.py...")
 
     try:
-        run_main_cmd = f"python main.py"
+        run_main_cmd = f"flet run main.py"
         subprocess.check_call(run_main_cmd, shell=True)
     except subprocess.CalledProcessError as e:
         print_step(f"Erro ao executar main.py. {e}", "error")
