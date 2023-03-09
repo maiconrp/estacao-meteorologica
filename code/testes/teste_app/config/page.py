@@ -2,6 +2,7 @@ import flet as ft
 from flet import UserControl
 import assets.colors
 
+
 class PageConfig(UserControl):
     def did_mount(self):
         """
