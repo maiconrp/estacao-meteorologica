@@ -54,11 +54,13 @@ class AppBarTemplate(AppBar):
                         color="#000000",
                         size=20,
                         weight=FontWeight.W_700,
+                        font_family="Poppins Bold"
                     ),
                     Text(
                         value="Quinta, 26 de janeiro",
                         color="#000000",
                         size=10,
+                        font_family="Poppins Regular"
                     ),
                 ],
                 spacing=3,
