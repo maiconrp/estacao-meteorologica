@@ -26,7 +26,7 @@ def bem_vind():
     print(*msg, sep="\n")
 
 
-def print_step(msg: str, status: Optional[str] = "info"):
+def print_step(msg: str, status: str = "info"):
     """
     Função que imprime msg de texto de forma personalizada
     """
@@ -55,7 +55,7 @@ def create_virtual_env():
     """
     print_step("Configurando ambiente virtual...")
 
-    python_cmd = "python" if platform.system() == "Windows" else "python3"
+    python_cmd = "py -3.8" if platform.system() == "Windows" else "python3"
     venv_cmd = (
         "py -3.8 -m venv" if platform.system() == "Windows" else "python3.8.6 -m venv"
     )
