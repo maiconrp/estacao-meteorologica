@@ -1,4 +1,5 @@
 import math
+from componentes.AlertDialog import open_dlg
 from flet import (
     ButtonStyle,
     CircleBorder,
@@ -21,7 +22,6 @@ from flet import (
     IconButton,
     margin,
     padding,
-    Rotate,
     UserControl,
 )
 
@@ -79,6 +79,180 @@ class TextTemplate(UserControl):
         )
 
 
+class ClimaTemplate(UserControl):
+    """
+    Classe para criar campos de texto com configurações comuns
+
+    Atributos:
+        ATRIBUTO    TIPO        DEFINIÇÃO                               DEFAULT
+        label       (str)       Descrição do campo de texto             ("Texto")
+        value       (int)       Valor inicial do campo de texto         (0)
+        text_align  (TextAlign) Alinhamento do texto dentro do campo    (TextAlign.CENTER)
+        width       (int)       Largura do campo de texto               (175)
+        suffix_text (str)       Texto que aparece após o valor          ("")
+    """
+
+    def __init__(
+        self,
+        bgcolor=assets.colors.BRANCO,
+        content=None,
+        width=300,
+        height=47,
+        padding=padding.only(left=20, right=20),
+        margin=0,
+        border_radius=10,
+    ):
+        super().__init__()
+        self.bgcolor = bgcolor
+        self.content= content
+        self.width = width
+        self.height = height
+        self.padding = padding
+        self.margin = margin
+        self.border_radius = border_radius
+
+    def build(self):
+        """
+        Cria um objeto TextField com as configurações especificadas no construtor
+
+        Retorna: TextField: campo de texto criado
+        """
+        return Container(
+            bgcolor=self.bgcolor,
+            content=self.content,
+            width=self.width,
+            height=self.height,
+            padding=self.padding,
+            margin=self.margin,
+            border_radius = self.border_radius
+        )
+
+
+temperatura = ClimaTemplate(content=Row(alignment = MainAxisAlignment.SPACE_BETWEEN,
+    controls = [
+        Container(
+            content=Row(
+                controls = [
+                    Image(src=f"/icons/gotinha.svg",width=18, height=18),
+                    Text('Temperatura', color="#000000",size=15, weight=FontWeight.W_600),
+                ]
+            )
+        ),
+        Container(
+            content = Row(
+                controls = [
+                    Container(border_radius=12, bgcolor='#EBEBF0', width=44, height=22, alignment = alignment.center,
+                            content = Text('25°C', color="#000000", size=11, weight=FontWeight.W_700),
+                    ),
+                    Image(src=f"/icons/setaBaixo.svg", height=13),
+                ]
+            )
+        )
+        ] 
+    )
+).build()
+
+
+vento = ClimaTemplate(content=Row(alignment = MainAxisAlignment.SPACE_BETWEEN,
+    controls = [
+        Container(
+            content=Row(
+                controls = [
+                    Image(src=f"/icons/gotinha.svg",width=18, height=18),
+                    Text('Vento', color="#000000",size=15, weight=FontWeight.W_600),
+                ]
+            )
+        ),
+        Container(
+            content = Row(
+                controls = [
+                    Container(border_radius=12, bgcolor='#EBEBF0', width=50, height=22, alignment = alignment.center,
+                            content = Text('13km/h', color="#000000", size=11, weight=FontWeight.W_700),
+                    ),
+                    Image(src=f"/icons/setaCima.svg", height=13),
+                ]
+            )
+        )
+        ] 
+    )
+).build()
+
+
+umidade = ClimaTemplate(content=Row(alignment = MainAxisAlignment.SPACE_BETWEEN,
+    controls = [
+        Container(
+            content=Row(
+                controls = [
+                    Image(src=f"/icons/gotinha.svg",width=18, height=18),
+                    Text('Umidade', color="#000000",size=15, weight=FontWeight.W_600),
+                ]
+            )
+        ),
+        Container(
+            content = Row(
+                controls = [
+                    Container(border_radius=12, bgcolor='#EBEBF0', width=40, height=22, alignment = alignment.center,
+                            content = Text('39%', color="#000000", size=11, weight=FontWeight.W_700),
+                    ),
+                    Image(src=f"/icons/setaBaixo.svg", height=13),
+                ]
+            )
+        )
+        ] 
+    )
+).build()
+
+
+pressao = ClimaTemplate(content=Row(alignment = MainAxisAlignment.SPACE_BETWEEN,
+    controls = [
+        Container(
+            content=Row(
+                controls = [
+                    Image(src=f"/icons/gotinha.svg",width=18, height=18),
+                    Text('Pressão', color="#000000",size=15, weight=FontWeight.W_600),
+                ]
+            )
+        ),
+        Container(
+            content = Row(
+                controls = [
+                    Container(border_radius=12, bgcolor='#EBEBF0', width=50, height=22, alignment = alignment.center,
+                            content = Text('11 hpa', color="#000000", size=11, weight=FontWeight.W_700),
+                    ),
+                    Image(src=f"/icons/setaCima.svg", height=13),
+                ]
+            )
+        )
+        ] 
+    )
+).build()
+
+
+radiacao = ClimaTemplate(content=Row(alignment = MainAxisAlignment.SPACE_BETWEEN,
+    controls = [
+        Container(
+            content=Row(
+                controls = [
+                    Image(src=f"/icons/gotinha.svg",width=18, height=18),
+                    Text('Radiação', color="#000000",size=15, weight=FontWeight.W_600),
+                ]
+            )
+        ),
+        Container(
+            content = Row(
+                controls = [
+                    Container(border_radius=12, bgcolor='#EBEBF0', width=50, height=22, alignment = alignment.center,
+                            content = Text('18W/m²', color="#000000", size=11, weight=FontWeight.W_700),
+                    ),
+                    Image(src=f"/icons/setaCima.svg", height=13),
+                ]
+            )
+        )
+        ] 
+    )
+).build()
+
+
 def click(e: ContainerTapEvent):
     print("clck")
 
@@ -90,11 +264,12 @@ card_cultura = Card(
         width=300,
         border_radius=11,
         padding=padding.only(left=20),
+        on_click = open_dlg,
         content=Row(
             controls=[
                 Container(
                     content=Image(
-                        src=f"assets/icons/corn.png",
+                        src=f"/icons/corn.png",
                         width=300,
                         height=300,
                     ),
@@ -152,6 +327,18 @@ relatorio = Container(
     width=300,
 )
 
+clima = Container(
+    content=Row(
+        controls=[
+            Icon(icons.SQUARE, color="#00D154", size=16),
+            Text(value="Clima", color="#000000", size=20, weight=FontWeight.W_600),
+        ],
+        vertical_alignment=CrossAxisAlignment.CENTER
+        # expand=1,
+    ),
+    width=300,
+)
+
 card_irrigacao = Container(
     bgcolor=assets.colors.BRANCO,
     height=140,
@@ -178,7 +365,7 @@ card_irrigacao = Container(
                         ),
                     ),
                     Image(
-                        src=f"assets/icons/watch.svg",
+                        src=f"/icons/watch.svg",
                         width=20,
                         height=20,
                     ),
@@ -226,7 +413,7 @@ card_economia = Container(
                             ),
                         ),
                         Image(
-                            src=f"assets/icons/percentage.svg",
+                            src=f"/icons/percentage.svg",
                             width=20,
                             height=20,
                         ),
@@ -286,7 +473,7 @@ card_ET = Container(
                                 alignment=MainAxisAlignment.CENTER,
                                 controls=[
                                     Image(
-                                        src=f"assets/icons/gotinha.svg",
+                                        src=f"/icons/gotinha.svg",
                                         width=16,
                                         height=16,
                                     ),
@@ -330,7 +517,7 @@ card_ET = Container(
                                 alignment=MainAxisAlignment.CENTER,
                                 controls=[
                                     Image(
-                                        src=f"assets/icons/plantinha.svg",
+                                        src=f"/icons/plantinha.svg",
                                         width=16,
                                         # height=16,
                                     ),
@@ -369,3 +556,6 @@ card_ET = Container(
         ],
     ),
 )
+
+
+
