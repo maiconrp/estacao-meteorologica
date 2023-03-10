@@ -3,7 +3,7 @@ from componentes.NavigationBar import navigation_bar
 from componentes.AppBar import appbar
 from componentes.botões.ElevatedButton import HomeButton
 from componentes.Container import *
-from componentes.Container import card_cultura
+
 
 class HomePage:
     def build():
@@ -14,6 +14,12 @@ class HomePage:
                     controls=[
                         card_cultura,
                         line,
+                        clima,
+                        Card(temperatura, elevation=8),
+                        Card(umidade, elevation=8),
+                        Card(vento, elevation=8),
+                        Card(pressao, elevation=8),
+                        Card(radiacao, elevation=4),
                         relatorio,
                         Row(
                             controls=[
