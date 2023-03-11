@@ -93,6 +93,7 @@ def activate_virtual_env():
 
     return activate_cmd
 
+
 def check_python_version():
     """
     Verifica se a versão do Python é compatível com o projeto.
@@ -103,10 +104,16 @@ def check_python_version():
     current_version = sys.version_info[:2]
 
     if current_version < min_version:
-        print_step(f"A versão do Python atual ({current_version[0]}.{current_version[1]}) é incompatível com o projeto. É necessária a versão {min_version[0]}.{min_version[1]} ou superior.", "error")
+        print_step(
+            f"A versão do Python atual ({current_version[0]}.{current_version[1]}) é incompatível com o projeto. É necessária a versão {min_version[0]}.{min_version[1]} ou superior.",
+            "error",
+        )
         sys.exit(1)
     else:
-        print_step(f"Versão do Python verificada com sucesso: {current_version[0]}.{current_version[1]}", "success")
+        print_step(
+            f"Versão do Python verificada com sucesso: {current_version[0]}.{current_version[1]}",
+            "success",
+        )
 
 
 def install_dependencies():
