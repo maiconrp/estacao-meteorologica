@@ -1,26 +1,23 @@
 from pages.home import HomePage
 from pages.meteorologia import MeteorologiaPage
 from pages.auth.login import LoginPage
-from flet import UserControl
+from flet import Page
 import flet as ft
 
 
-class RouteConfig(UserControl):
+class RouteConfig:
     """
     Classe que representa as rotas disponíveis no aplicativo web.
     """
 
-    # Define as rotas disponíveis no aplicativo, com o caminho da rota como chave e o
-    # destino (página ou componente) como valor
-    ROUTES = {
-        "/meteorologia": MeteorologiaPage.build(),
-        "/": HomePage.build(),
-        "/login": LoginPage.build(),
-    }
-
-    def did_mount(self):
+    def __init__(self, page: Page):
+        self.page = page
+        self.routes = {
+            "/meteorologia": MeteorologiaPage.build(),
+            "/": HomePage.build(),
+            "/login": LoginPage.build(),
+        }
         """
-        Método que é chamado após a criação do objeto.
         Configura os eventos de mudança de rota e de remoção da última vista.
         """
         self.page.on_route_change = self.route_change
@@ -47,26 +44,20 @@ class RouteConfig(UserControl):
     def get_destiny(self, route):
         """
         Método que retorna o destino (página ou componente) associado à rota especificada.
-        Se a rota não estiver presente em ROUTES, retorna a página inicial.
+        Se a rota não estiver presente em routes, retorna a página inicial.
         """
         # Retorna o destino (página ou componente) associado à rota especificada
-        return self.ROUTES.get(route, "/")
+        return self.routes.get(route, "/")
 
     def get_routes(self):
         """
         Método que retorna uma lista de todas as rotas disponíveis no aplicativo.
         """
         # Retorna uma lista de todas as rotas disponíveis no aplicativo
-        return list(self.ROUTES.keys())
+        return list(self.routes.keys())
 
     def go_route(self, index):
         """
         Método que vai para a rota correspondente ao índice especificado.
         """
         self.page.go(self.get_routes()[index])
-
-    def build(self):
-        """
-        Método que cria o objeto.
-        """
-        return ft.Container()

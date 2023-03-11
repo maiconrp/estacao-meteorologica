@@ -4,12 +4,16 @@ import config.page
 import config.routes
 import config.firebase
 
+from componentes.NavigationBar import navigation_bar
+
 
 def main(page: ft.Page):
 
-    page.add(config.page.PageConfig())
-    page.add(config.routes.RouteConfig())
-    # page.add(config.firebase.FirebaseConfig())
+    navigation_bar.page = page
+
+    config.routes.RouteConfig(page)
+    config.page.PageConfig(page)
+    # firebase = config.firebase.FirebaseConfig(page)
 
 
 ft.app(target=main)
