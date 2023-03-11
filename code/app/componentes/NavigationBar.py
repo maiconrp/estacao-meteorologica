@@ -6,6 +6,7 @@ from flet import (
     UserControl,
     border_radius,
     Container,
+    Page,
 )
 import config.routes
 
@@ -35,11 +36,18 @@ class NavigationBarTemplate(NavigationBar):
         ],
         bgcolor="#FFFFFF",
         height=70,
+        page: Page = None,
     ):
         super().__init__()
         self.destinations = destinations
         self.bgcolor = bgcolor
         self.height = height
+        self.page = page
+        self.on_change = self.change
+
+    def change(self, e):
+        self.page.title = "titulo mudado"
+        self.page.update()
 
 
 navigation_bar = NavigationBarTemplate()
