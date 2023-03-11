@@ -1,4 +1,4 @@
-#define TEMT6000_PIN A0 //Define o pino a ser usado como entrada do sensor
+#define TEMT6000_PIN 15 //Define o pino a ser usado como entrada do sensor
 
 void setup() {
   Serial.begin(115200); //Inicia a comunicação serial
