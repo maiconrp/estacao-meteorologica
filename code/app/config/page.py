@@ -1,13 +1,17 @@
 import flet as ft
-from flet import UserControl, Theme
+from flet import UserControl, Theme, Page
 import assets.colors
 import assets.fonts.config
 
-class PageConfig(UserControl):
-    def did_mount(self):
-        """
-        Configura as propriedades da página.
-        """
+
+class PageConfig:
+    """
+    Configura as propriedades da página.
+    """
+
+    def __init__(self, page: Page):
+        self.page = page
+
         # Define o título da página
         self.page.title = "Estacao Meteorologica"
 
@@ -30,10 +34,3 @@ class PageConfig(UserControl):
         # Atualiza a página
         self.page.fonts = assets.fonts.config.load()
         self.page.update()
-        print(self.page.fonts)
-
-    def build(self):
-        """
-        Retorna um container vazio.
-        """
-        return ft.Container()
