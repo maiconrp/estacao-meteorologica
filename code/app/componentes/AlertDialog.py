@@ -66,18 +66,18 @@ from flet import *
         )
 """
 
+
 class TextFieldTemplate:
     def __init__(
         self,
-        bgcolor='#E6E7EB',
+        bgcolor="#E6E7EB",
         width=50,
         height=50,
         border_radius=7,
         read_only=True,
-        label='Field',
-        value='Info',
-        border=InputBorder.NONE
-
+        label="Field",
+        value="Info",
+        border=InputBorder.NONE,
     ):
         self.bgcolor = bgcolor
         self.width = width
@@ -88,7 +88,7 @@ class TextFieldTemplate:
         self.value = value
         self.border = border
 
- #top_view = self.page.views[-1]
+    # top_view = self.page.views[-1]
 
     def build(self):
         """
@@ -104,37 +104,41 @@ class TextFieldTemplate:
             read_only=self.read_only,
             label=self.label,
             value=self.value,
-            border=self.border
+            border=self.border,
         )
 
-tipo = TextFieldTemplate(width=300, label='Tipo', value='Milho').build()
 
-data = TextFieldTemplate(width=110, label='Data de plantio', value='25/08/2022').build()
+tipo = TextFieldTemplate(width=300, label="Tipo", value="Milho").build()
 
-area = TextFieldTemplate(width=110, label='Área', value='3500m²').build()
+data = TextFieldTemplate(width=110, label="Data de plantio", value="25/08/2022").build()
 
-vazao = TextFieldTemplate(width=300, label='Vazão', value='1300 L/h').build()
+area = TextFieldTemplate(width=110, label="Área", value="3500m²").build()
 
-tempo_ant = TextFieldTemplate(width=70, label='Anterio', value='4h').build()
+vazao = TextFieldTemplate(width=300, label="Vazão", value="1300 L/h").build()
 
-tempo_atu = TextFieldTemplate(width=70, label='Atual', value='3h').build()
+tempo_ant = TextFieldTemplate(width=70, label="Anterio", value="4h").build()
 
-economia = TextFieldTemplate(width=70, bgcolor='#00D154', label='Economia', value='27%').build()
+tempo_atu = TextFieldTemplate(width=70, label="Atual", value="3h").build()
 
-estagio = TextFieldTemplate(width=90, label='Estágio', value='Maturação').build()
+economia = TextFieldTemplate(
+    width=70, bgcolor="#00D154", label="Economia", value="27%"
+).build()
 
-duracao = TextFieldTemplate(width=65, label='Duração', value='27 dias').build()
+estagio = TextFieldTemplate(width=90, label="Estágio", value="Maturação").build()
 
-kc = TextFieldTemplate(width=65, label='Kc', value='1.7').build()
+duracao = TextFieldTemplate(width=65, label="Duração", value="27 dias").build()
+
+kc = TextFieldTemplate(width=65, label="Kc", value="1.7").build()
 
 dlg_cultura = ft.AlertDialog(
-    content = Container(
-        bgcolor='white',
+    content=Container(
+        bgcolor="white",
         height=390,
         width=270,
-        content = Column(
-            controls = [
-                Row(vertical_alignment=CrossAxisAlignment.CENTER,
+        content=Column(
+            controls=[
+                Row(
+                    vertical_alignment=CrossAxisAlignment.CENTER,
                     controls=[
                         Container(
                             content=Image(
@@ -149,27 +153,27 @@ dlg_cultura = ft.AlertDialog(
                             color="#000000",
                             size=28,
                             weight=FontWeight.W_800,
-                        )
-                    ]
+                        ),
+                    ],
                 ),
                 tipo,
                 Row(
                     controls=[
-                            data,
-                            area,
+                        data,
+                        area,
                     ]
                 ),
                 vazao,
                 Container(
                     content=Text(
-                        'Tempo de irrigação',
+                        "Tempo de irrigação",
                         color="#000000",
                         size=13,
                         weight=FontWeight.W_600,
                     )
                 ),
                 Row(
-                    controls = [
+                    controls=[
                         tempo_ant,
                         tempo_atu,
                         economia,
@@ -177,29 +181,20 @@ dlg_cultura = ft.AlertDialog(
                 ),
                 Container(
                     content=Text(
-                        'Desenvolvimento',
+                        "Desenvolvimento",
                         color="#000000",
                         size=13,
                         weight=FontWeight.W_600,
                     )
                 ),
                 Row(
-                    controls = [
+                    controls=[
                         estagio,
                         duracao,
                         kc,
                     ]
                 ),
             ]
-        ),         
-)         
+        ),
+    )
 )
-
-
-def open_dlg_cultura(e):
-    ft.Page.dialog = dlg_cultura
-    dlg.open = True
-    ft.Page.update()
-
-
-    
