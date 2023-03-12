@@ -33,7 +33,6 @@ def print_step(msg: str, status: str = "info"):
     color = {
         "success": "\033[1;32m",  # verde
         "error": "\033[1;31m",  # vermelho
-        "info": "\033[1;37m",  # branco
     }
     end_color = "\033[0m"
 
@@ -56,21 +55,21 @@ def create_virtual_env():
     print_step("Configurando ambiente virtual...")
 
     python_cmd = "py -3.8" if platform.system() == "Windows" else "python3"
-    venv_cmd = (
-        "py -3.8 -m venv" if platform.system() == "Windows" else "python3.8.6 -m venv"
-    )
+    venv_cmd = ["py", "-3.8", "-m", "venv"] if platform.system() == "Windows" else ["python3.8.6", "-m", "venv"]
+    
 
     venv_path = Path("venv")
     if not venv_path.exists():
-        create_venv_cmd = f"{venv_cmd} venv"
+        create_venv_cmd = [*venv_cmd, "venv"]
         try:
-            subprocess.check_call(create_venv_cmd, shell=True)
+            subprocess.check_call(create_venv_cmd)
             print_step("Ambiente virtual criado com sucesso!", "success")
         except subprocess.CalledProcessError as e:
             print_step(f"Erro ao criar ambiente virtual. {e}", "error")
             sys.exit(1)
     else:
         print_step("Ambiente virtual já existe.", "info")
+
 
 
 def activate_virtual_env():
@@ -86,10 +85,10 @@ def activate_virtual_env():
 
     if platform.system() == "Windows":
         activate_path = os.path.join("venv", "Scripts", "activate.bat")
-        activate_cmd = f"{activate_path} &&"
+        activate_cmd = [activate_path, "&&"]
     else:
         activate_path = os.path.join("venv", "bin", "activate")
-        activate_cmd = f"source {activate_path} &&"
+        activate_cmd = ["source", activate_path, "&&"]
 
     return activate_cmd
 
@@ -125,8 +124,8 @@ def install_dependencies():
     print_step("Instalando dependências...")
 
     try:
-        install_requirements_cmd = f"{activate_cmd} pip install -q --disable-pip-version-check -r requirements.txt"
-        subprocess.check_call(install_requirements_cmd, shell=True)
+        install_requirements_cmd = [*activate_cmd, 'pip', 'install', '-q', '--disable-pip-version-check', '-r', 'requirements.txt']
+        subprocess.check_call(install_requirements_cmd)
         print_step("Dependências instaladas com sucesso!", "success")
     except subprocess.CalledProcessError as e:
         print_step(f"Erro ao instalar dependências. {e}", "error")
@@ -141,8 +140,8 @@ def run_main():
     print_step("Executando main.py...")
 
     try:
-        run_main_cmd = f"flet run main.py"
-        subprocess.check_call(run_main_cmd, shell=True)
+        run_main_cmd = ['flet', 'run', 'main.py']
+        subprocess.check_call(run_main_cmd)
     except subprocess.CalledProcessError as e:
         print_step(f"Erro ao executar main.py. {e}", "error")
         sys.exit(1)
