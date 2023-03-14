@@ -1,4 +1,6 @@
-class AlertDialogTemplate(ft.UserControl):
+from flet import *
+
+class DialogTemplateEstacao(ft.UserControl):
         def __init__(
             self,
             modal=False,
@@ -147,7 +149,7 @@ class AlertDialogTemplate(ft.UserControl):
     radiacao = status_template("radiação", "W/m²", "off")
     
 
-    dlg_estacao = AlertDialogTemplate(
+    dlg_estacao = DialogTemplateEstacao(
         content=Container(
             padding=padding.only(left=15, right=15, bottom=15),
             width=270,
