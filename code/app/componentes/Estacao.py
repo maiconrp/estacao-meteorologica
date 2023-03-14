@@ -1,3 +1,4 @@
+import flet as ft
 from flet import *
 
 class DialogTemplateEstacao(ft.UserControl):
