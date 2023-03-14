@@ -1,5 +1,5 @@
+import flet as ft
 from flet import *
-
 
 class DialogTemplateCadastro(ft.UserControl):
     def __init__(
