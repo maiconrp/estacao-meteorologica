@@ -9,6 +9,8 @@ from flet import (
     UserControl,
     Column,
     Container,
+    MainAxisAlignment,
+    margin,
 )
 import assets.colors
 
@@ -47,28 +49,32 @@ class AppBarTemplate(AppBar):
     def __init__(
         self,
         title=Container(
-            content=Column(
-                controls=[
-                    Text(
-                        value="Olá, Victor",
-                        color="#000000",
-                        size=20,
-                        weight=FontWeight.W_700,
-                        font_family="Poppins Bold",
+            content=Row(alignment=MainAxisAlignment.SPACE_BETWEEN,
+                controls = [
+                    Column(
+                        controls=[
+                            Text(
+                                value="Olá, Victor",
+                                color="#000000",
+                                size=20,
+                                weight=FontWeight.W_700,
+                                font_family="Poppins Bold",
+                            ),
+                            Text(
+                                value="Quinta, 26 de janeiro",
+                                color="#000000",
+                                size=10,
+                                font_family="Poppins Regular",
+                            ),
+                        ],
+                        spacing=3,
                     ),
-                    Text(
-                        value="Quinta, 26 de janeiro",
-                        color="#000000",
-                        size=10,
-                        font_family="Poppins Regular",
-                    ),
-                ],
-                spacing=3,
+                    estacao,
+                ]
             ),
-            margin=10.0,
+            margin=margin.only(left=20, bottom=10),    
         ),
         bgcolor="transparent",
-        actions=[estacao],
     ):
         """
         Construtor da classe AppBarTemplate. Define os atributos title, bgcolor e actions da AppBar.
@@ -85,7 +91,6 @@ class AppBarTemplate(AppBar):
         super().__init__()
         self.title = title
         self.bgcolor = bgcolor
-        self.actions = actions
 
 
 appbar = AppBarTemplate()
