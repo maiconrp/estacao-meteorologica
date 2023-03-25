@@ -1,25 +1,20 @@
+import plotly.express as px
+
 import flet as ft
+from flet.plotly_chart import PlotlyChart
 
-oi = ft.Text("oi")
+def main(page: ft.Page):
 
+    df = px.data.gapminder().query("continent == 'Oceania'")
+    fig = px.bar(
+        df,
+        x="year",
+        y="pop",
+        hover_data=["lifeExp", "gdpPercap"],
+        labels={"pop": "population of Canada"},
+        height=400,
+    )
 
-class PageConfig(ft.UserControl):
-    def did_mount(self):
-        self.page.window_width = 385.0
-        self.page.window_height = 704.0
-        self.page.window_always_on_top = True
-        self.page.scroll = "auto"
-        self.page.title = "Estacao Meteorologica"
-        self.page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
-        self.page.theme_mode = "light"
-        self.page.update()
-
-    def build(self):
-        return ft.Container()
-
-
-def main(page):
-    page.add(PageConfig())
-
+    page.add(PlotlyChart(fig, expand=True))
 
 ft.app(target=main)
