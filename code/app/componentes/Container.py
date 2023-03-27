@@ -24,7 +24,7 @@ from flet import (
 )
 
 import assets.colors
-
+from utils.equations.eto import EToPMF
 
 class TextTemplate(UserControl):
     """
@@ -315,7 +315,7 @@ card_ET = Container(
                                 Column(
                                     [
                                         Text(
-                                            value="48",
+                                            value="{:.2f}".format(EToPMF),
                                             font_family="Montserrat",
                                             color="#000000",
                                             size=50,
