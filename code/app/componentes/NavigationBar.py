@@ -30,7 +30,7 @@ class NavigationBarTemplate(NavigationBar):
     def __init__(
         self,
         destinations=[
-            NavigationDestinationTemplate(label="Cultura", icon="plant"),
+            NavigationDestinationTemplate(label="Dashboard", icon="plant"),
             NavigationDestinationTemplate(label="Home", icon="home"),
             NavigationDestinationTemplate(label="Perfil", icon="user"),
         ],
@@ -46,8 +46,7 @@ class NavigationBarTemplate(NavigationBar):
         self.on_change = self.change
 
     def change(self, e):
-        self.page.title = "titulo mudado"
-        self.page.update()
+        self.page.go(e.control.selected_index)
 
 
 navigation_bar = NavigationBarTemplate()
