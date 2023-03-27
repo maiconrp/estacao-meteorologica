@@ -3,7 +3,7 @@ from componentes.NavigationBar import navigation_bar
 from componentes.AppBar import appbar
 from componentes.botões.ElevatedButton import HomeButton
 from componentes.Container import *
-from componentes.Graficos import grafico_barras, grafico_linha
+from componentes.Graficos import grafico_temperatura, grafico_Etc
 from componentes.Clima import temperatura, vento, umidade, pressao, radiacao
 
 
@@ -17,8 +17,8 @@ class HomePage:
                         card_cultura,
                         line,
                         relatorio,
-                        grafico_linha,
-                        grafico_barras,
+                        grafico_temperatura,
+                        grafico_Etc,
                         Row(
                             controls=[
                                 Card(card_irrigacao, elevation=6),
