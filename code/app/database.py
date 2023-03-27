@@ -187,10 +187,63 @@ FIREBASE = pyrebase.initialize_app(config)
 
 db = FIREBASE.database()
 
-path = "/Produtor/Cultura/Meteorologia/grafico"
+path = "/Produtor/Cultura/Meteorologia/radiacao/valor_atual"
 
-variaveis = db.child(path).get()
+grafico_temp = {
+    'index': [
+        0, 1
+    ],
+    'value': [
+        '', ''
+    ],
+}
 
-'''for varaivel in .each():
-    print(user.key()) # Morty
-    print(user.val()) # {name": "Mortimer 'Morty' Smith"}'''
+grafico_etc = {
+    'index': [
+        0, 1, 2, 3, 4
+    ],
+    'value': [
+        '', '', '', '', ''
+    ],
+}
+
+def calc_media(dicio, lista):
+    length = 0
+    soma = 0
+    for valor in dicio.each():
+       lista.append(valor.val()) 
+
+    for valor in lista:
+        soma = soma + valor
+
+    media = soma/len(lista)
+
+    return media
+    
+
+values_rad = []
+values_temp = []
+values_umi = []
+values_vento = []
+
+dict_temp = db.child('/Produtor/Cultura/Meteorologia/temperatura/historico').get()
+valores_etc = db.child('/Produtor/Cultura/Meteorologia/etc').get()
+dict_rad = db.child('/Produtor/Cultura/Meteorologia/radiacao/historico').get()
+dict_umi = db.child('/Produtor/Cultura/Meteorologia/umidade/historico').get()
+dict_vento = db.child('/Produtor/Cultura/Meteorologia/vento/historico').get()
+
+print(dict_temp.each())
+
+grafico_temp['value'] = [valor.val() for valor in dict_temp.each()]
+grafico_etc['value'] = [valor.val() for valor in valores_etc.each()]
+
+Rn = calc_media(dict_rad, values_rad) #Saldo de radiação em MJ/m2.dia
+Temp = calc_media(dict_temp, values_temp) # Temperatura em graus Celsius
+ur = calc_media(dict_umi, values_umi)   # Umidade Relativa em porcentagem
+vv = calc_media(dict_vento, values_vento)    # Velocidade do vento à 2m de altura em m/s
+
+
+
+    
+
+    
