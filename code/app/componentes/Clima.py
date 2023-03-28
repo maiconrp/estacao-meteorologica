@@ -15,7 +15,7 @@ from flet import (
 )
 
 import assets.colors
-
+from database import get_value
 
 class ClimaTemplate(UserControl):
     """
@@ -106,8 +106,8 @@ def clima_template(titulo: str, valor: str, icone: str):
     return ClimaTemplate(content=conteudo)
 
 
-temperatura = clima_template("temperatura", "25°C", "setaBaixo")
-vento = clima_template("vento", "13km/h", "setaCima")
-umidade = clima_template("umidade", "39%", "setaBaixo")
-pressao = clima_template("pressão", "11 hpa", "setaCima")
-radiacao = clima_template("radiação", "", "setaCima")
+temperatura = clima_template("temperatura", get_value('temperatura')+' °C', "setaBaixo")
+vento = clima_template("vento", get_value('vento')+' Km/h', "setaCima")
+umidade = clima_template("umidade", get_value('umidade')+' %', "setaBaixo")
+pressao = clima_template("pressão", get_value('pressao')+' hpa', "setaCima")
+radiacao = clima_template("radiação", get_value('radiacao')+' W/m²', "setaCima")
