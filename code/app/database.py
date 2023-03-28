@@ -187,25 +187,8 @@ FIREBASE = pyrebase.initialize_app(config)
 
 db = FIREBASE.database()
 
-path = "/Produtor/Cultura/Meteorologia/radiacao/valor_atual"
+path = "/Produtor/Cultura/Meteorologia/{}/valor_atual"
 
-grafico_temp = {
-    'index': [
-        0, 1
-    ],
-    'value': [
-        '', ''
-    ],
-}
-
-grafico_etc = {
-    'index': [
-        0, 1, 2, 3, 4
-    ],
-    'value': [
-        '', '', '', '', ''
-    ],
-}
 
 def calc_media(dicio, lista):
     length = 0
@@ -232,15 +215,15 @@ dict_rad = db.child('/Produtor/Cultura/Meteorologia/radiacao/historico').get()
 dict_umi = db.child('/Produtor/Cultura/Meteorologia/umidade/historico').get()
 dict_vento = db.child('/Produtor/Cultura/Meteorologia/vento/historico').get()
 
-print(dict_temp.each())
-
-grafico_temp['value'] = [valor.val() for valor in dict_temp.each()]
-grafico_etc['value'] = [valor.val() for valor in valores_etc.each()]
 
 Rn = calc_media(dict_rad, values_rad) #Saldo de radiação em MJ/m2.dia
 Temp = calc_media(dict_temp, values_temp) # Temperatura em graus Celsius
 ur = calc_media(dict_umi, values_umi)   # Umidade Relativa em porcentagem
 vv = calc_media(dict_vento, values_vento)    # Velocidade do vento à 2m de altura em m/s
+
+def get_value(variavel):
+    return str(db.child(path.format(variavel)).get().val())
+     
 
 
 
