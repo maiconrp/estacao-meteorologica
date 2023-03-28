@@ -1,10 +1,8 @@
 import math
+from utils.equations.eto import EToPMF
 
 
-print("Calcular evapotranspiracao de cultura")
+Kc= 1.20
+Etc= (EToPMF*Kc)
 
-Eto= float(input("Qual o valor da evapotranspiracao de referencia?"))
-Kc= float(input("qual o coeficiente de crescimento da cultura utilizada?"))
-Etc= (Eto*Kc)
 
-print("a evapotranspiracao da sua cultura é", Etc )
