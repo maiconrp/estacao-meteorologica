@@ -139,6 +139,7 @@ line = Container(width=290, height=1.6, bgcolor="#00D154", alignment=alignment.c
 # Criação de campos de texto com configurações comuns
 
 relatorio = Container(
+    margin=margin.only(top=20),
     content=Row(
         controls=[
             Icon(icons.SQUARE, color="#00D154", size=16),
@@ -150,7 +151,21 @@ relatorio = Container(
     width=300,
 )
 
+dashboard = Container(
+    margin=margin.only(top=20),
+    content=Row(
+        controls=[
+            Icon(icons.SQUARE, color="#00D154", size=16),
+            Text(value="Dashboard", color="#000000", size=20, weight=FontWeight.W_600),
+        ],
+        vertical_alignment=CrossAxisAlignment.CENTER
+        # expand=1,
+    ),
+    width=300,
+)
+
 clima = Container(
+    margin=margin.only(top=20),
     content=Row(
         controls=[
             Icon(icons.SQUARE, color="#00D154", size=16),
