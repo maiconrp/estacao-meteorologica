@@ -5,7 +5,7 @@ import numpy as np
 from flet.plotly_chart import PlotlyChart
 from flet import UserControl
 import assets.colors
-from database import valores_etc, dict_temp, grafico_temp, grafico_etc
+from database import valores_etc, dict_temp, dict_rad, dict_umi, dict_vento
 
 
 
@@ -52,26 +52,34 @@ class GraficoBarras(UserControl):
 grafico_Etc = GraficoBarras()
 
 class GraficoLinhas(UserControl):
+    def __init__(
+        self,
+        dicio = None,
+        title_graph = None,
+        titley = None,
+    ):
+        super().__init__()
+        self.dicio = dicio
+        self.title_graph = title_graph
+        self.titley = titley
+
     def build(self):
         green = [assets.colors.PRIMARY_GREEN,]*100
         cinza_claro = [assets.colors.CINZA_AZULADO,]*100
         
         fig = go.Figure()
 
-        dias = [v.key() for v in dict_temp.each()]
-
-        print(dias)
-
+        dias = [v.key() for v in self.dicio.each()]
         fig.add_trace(go.Scatter(x=dias, 
-            y=[v.val() for v in dict_temp.each()], 
+            y=[v.val() for v in self.dicio.each()], 
             line=dict(color='#00D154', 
             width=6)))
 
         fig.update_layout(
-            title='Temperatura',
+            title=self.title_graph,
             titlefont_size=28,
             yaxis=dict(
-                title='Valor em °C',
+                title=self.titley,
                 titlefont_size=22,
                 tickfont_size=14,
             ),
@@ -92,4 +100,7 @@ class GraficoLinhas(UserControl):
         )
         return PlotlyChart(fig, expand=True)
 
-grafico_temperatura = GraficoLinhas()
+grafico_temperatura = GraficoLinhas(dicio = dict_temp, title_graph = 'Temperatura', titley='Valor em °C')
+grafico_radiacao = GraficoLinhas(dicio = dict_rad, title_graph = 'Radiação solar', titley='Valor em W/m²')
+grafico_vento = GraficoLinhas(dicio = dict_vento, title_graph = 'Velocidade do vento', titley='Valor em m/s')
+grafico_umidade = GraficoLinhas(dicio = dict_umi, title_graph = 'Umidade', titley='Valor em %')
