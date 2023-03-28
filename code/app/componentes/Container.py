@@ -25,6 +25,7 @@ from flet import (
 
 import assets.colors
 from utils.equations.eto import EToPMF
+from utils.equations.etc import Etc
 
 class TextTemplate(UserControl):
     """
@@ -110,7 +111,7 @@ card_cultura = Card(
                             weight=FontWeight.W_600,
                         ),
                         Text(
-                            "Plantio: 25/08/2022",
+                            "Plantio: 12/01/2023",
                             color="#000000",
                             size=10,
                             weight=FontWeight.W_600,
@@ -333,7 +334,7 @@ card_ET = Container(
                                             value="{:.2f}".format(EToPMF),
                                             font_family="Montserrat",
                                             color="#000000",
-                                            size=50,
+                                            size=42,
                                             weight=FontWeight.W_700,
                                         ),
                                         Text(
@@ -372,10 +373,10 @@ card_ET = Container(
                             ),
                             Container(
                                 Text(
-                                    value="48",
+                                    value="{:.2f}".format(Etc),
                                     font_family="Montserrat",
                                     color="#000000",
-                                    size=50,
+                                    size=42,
                                     weight=FontWeight.W_700,
                                 ),
                             ),
