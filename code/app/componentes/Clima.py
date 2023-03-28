@@ -88,7 +88,7 @@ def clima_template(titulo: str, valor: str, icone: str):
         alignment=alignment.center,
         border_radius=12,
         bgcolor=assets.colors.WIDGET,
-        width=50,
+        width=70,
         height=22,
     )
     imagem_valor = Image(src=f"assets/icons/{icone}.svg", height=13)
@@ -106,8 +106,8 @@ def clima_template(titulo: str, valor: str, icone: str):
     return ClimaTemplate(content=conteudo)
 
 
-temperatura = clima_template("temperatura", get_value('temperatura')+' °C', "setaBaixo")
+temperatura = clima_template("temperatura", get_value('temperatura_bmp')+' °C', "setaBaixo")
 vento = clima_template("vento", get_value('vento')+' Km/h', "setaCima")
 umidade = clima_template("umidade", get_value('umidade')+' %', "setaBaixo")
-pressao = clima_template("pressão", get_value('pressao')+' hpa', "setaCima")
+pressao = clima_template("pressão", get_value('pressao_bmp')+' hpa', "setaCima")
 radiacao = clima_template("radiação", get_value('radiacao')+' W/m²', "setaCima")
