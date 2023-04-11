@@ -4,7 +4,7 @@ from database import Rn, vv, ur, Temp
 
 # Definição das variáveis
 
-
+Rn = 12.3
 G = 0 # Fluxo total diário de calor do solo em MJ/m2.dia 
 z = 335     # Altitude do local em m'''
 
