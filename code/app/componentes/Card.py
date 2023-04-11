@@ -1,7 +1,9 @@
 from flet import (
+    alignment,
     Card,
     Column,
     Container,
+    CrossAxisAlignment,
     FontWeight,
     Image,
     MainAxisAlignment,
@@ -11,6 +13,9 @@ from flet import (
     padding,
 )
 import flet as ft
+import assets.colors
+from utils.equations.eto import EToPMF
+from utils.equations.etc import Etc
 
 card_cultura = Card(
     content=Container(
@@ -23,7 +28,7 @@ card_cultura = Card(
             controls=[
                 Container(
                     Image(
-                        src=f"assets/icons/corn.png",
+                        src=f"/icons/corn.png",
                         width=300,
                         height=300,
                     ),
@@ -158,5 +163,124 @@ card_economia = Container(
                 ),
             ]
         ),
+    ),
+)
+
+card_ET = Container(
+    bgcolor=assets.colors.BRANCO,
+    # height=120,
+    width=300,
+    border_radius=11,
+    padding=padding.only(top=14, left=20, right=10, bottom=25),
+    content=Column(
+        spacing=12,
+        controls=[
+            Container(
+                bgcolor=assets.colors.WIDGET,
+                height=22,
+                width=500,
+                border_radius=17,
+                alignment=alignment.center,
+                # margin=margin.only(top=-10, bottom=-22, left=-14, right=20),
+                content=Text(
+                    "Evapotranspiração",
+                    color="#000000",
+                    size=12,
+                    weight=FontWeight.W_700,
+                ),
+            ),
+            Row(
+                spacing=50,
+                alignment=MainAxisAlignment.CENTER,
+                controls=[
+                    Column(
+                        horizontal_alignment=CrossAxisAlignment.CENTER,
+                        spacing=1,
+                        controls=[
+                            Row(
+                                alignment=MainAxisAlignment.CENTER,
+                                controls=[
+                                    Image(
+                                        src=f"/icons/gotinha.svg",
+                                        width=16,
+                                        height=16,
+                                    ),
+                                    Container(
+                                        content=Text(
+                                            "Referencia",
+                                            color="#000000",
+                                            size=12,
+                                            weight=FontWeight.W_700,
+                                        ),
+                                        alignment=alignment.center,
+                                    ),
+                                ],
+                            ),
+                            Container(
+                                Column(
+                                    [
+                                        Text(
+                                            value="{:.2f}".format(EToPMF),
+                                            font_family="Montserrat",
+                                            color="#000000",
+                                            size=42,
+                                            weight=FontWeight.W_700,
+                                        ),
+                                        Text(
+                                            value="mm/dia",
+                                            color="#808080",
+                                            size=17,
+                                            weight=FontWeight.W_700,
+                                        ),
+                                    ],
+                                )
+                            ),
+                        ],
+                    ),
+                    Column(
+                        horizontal_alignment=CrossAxisAlignment.CENTER,
+                        spacing=1,
+                        controls=[
+                            Row(
+                                alignment=MainAxisAlignment.CENTER,
+                                controls=[
+                                    Image(
+                                        src=f"/icons/plantinha.svg",
+                                        width=16,
+                                        # height=16,
+                                    ),
+                                    Container(
+                                        content=Text(
+                                            "Cultura",
+                                            color="#000000",
+                                            size=12,
+                                            weight=FontWeight.W_700,
+                                        ),
+                                        alignment=alignment.center,
+                                    ),
+                                ],
+                            ),
+                            Container(
+                                Text(
+                                    value="{:.2f}".format(Etc),
+                                    font_family="Montserrat",
+                                    color="#000000",
+                                    size=42,
+                                    weight=FontWeight.W_700,
+                                ),
+                            ),
+                            Container(
+                                Text(
+                                    value="mm/dia",
+                                    color="#808080",
+                                    size=17,
+                                    weight=FontWeight.W_700,
+                                ),
+                            ),
+                        ],
+                    ),
+                ],
+            ),
+        ],
     ),
 )

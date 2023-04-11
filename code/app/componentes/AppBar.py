@@ -1,5 +1,6 @@
 import flet as ft
 from flet import (
+    alignment,
     AppBar,
     FilledTonalButton,
     FontWeight,
@@ -11,13 +12,18 @@ from flet import (
     Container,
     MainAxisAlignment,
     margin,
+    Page,
 )
 import assets.colors
 
+def update(e):
+    page = ft.Page
+    page.update(self)
+
 estacao = Container(
     width=70,
-    height=25,
-    margin=ft.margin.only(right=25.0),
+    height=29,
+    margin=ft.margin.only(right=25.0, left=-50),
     content=Container(
         bgcolor=assets.colors.WIDGET,
         padding=ft.padding.symmetric(horizontal=10),
@@ -33,6 +39,25 @@ estacao = Container(
         ),
     ),
 )
+
+update= Container(
+    width=29,
+    height=29,
+    alignment = alignment.center,
+    on_click=update,
+    content=Container(
+        bgcolor=assets.colors.WIDGET,
+        border_radius=100,
+        padding=ft.padding.symmetric(horizontal=3),
+        content=Row(
+            controls=[
+                Icon(name=ft.icons.UPDATE, color=assets.colors.PRIMARY_GREEN, size=22),
+            ],
+        ),
+    ),
+)
+
+
 
 
 class AppBarTemplate(AppBar):
@@ -69,6 +94,7 @@ class AppBarTemplate(AppBar):
                         ],
                         spacing=3,
                     ),
+                    update,
                     estacao,
                 ]
             ),
