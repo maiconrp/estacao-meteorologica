@@ -209,7 +209,7 @@ values_temp = []
 values_umi = []
 values_vento = []
 
-dict_temp = db.child('/Produtor/Cultura/Meteorologia/temperatura/historico').get()
+dict_temp = db.child('/Produtor/Cultura/Meteorologia/temperatura_dht/historico').get()
 valores_etc = db.child('/Produtor/Cultura/Meteorologia/etc').get()
 dict_rad = db.child('/Produtor/Cultura/Meteorologia/radiacao/historico').get()
 dict_umi = db.child('/Produtor/Cultura/Meteorologia/umidade/historico').get()
@@ -220,6 +220,12 @@ Rn = calc_media(dict_rad, values_rad) #Saldo de radiação em MJ/m2.dia
 Temp = calc_media(dict_temp, values_temp) # Temperatura em graus Celsius
 ur = calc_media(dict_umi, values_umi)   # Umidade Relativa em porcentagem
 vv = calc_media(dict_vento, values_vento)    # Velocidade do vento à 2m de altura em m/s
+
+print(Rn)
+print(Temp)
+print(ur)
+print(vv)
+
 
 def get_value(variavel):
     return str(db.child(path.format(variavel)).get().val())
