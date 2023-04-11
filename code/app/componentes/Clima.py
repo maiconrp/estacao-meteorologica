@@ -72,7 +72,7 @@ class ClimaTemplate(UserControl):
 def clima_template(titulo: str, valor: str, icone: str):
     # Cria os controles filhos para a linha do título
     imagem_titulo = Container(
-        Image(src=f"assets/icons/clima/{titulo}.svg", width=18, height=18),
+        Image(src=f"/icons/clima/{titulo}.svg", width=18, height=18),
         shape=BoxShape.CIRCLE, 
         bgcolor=assets.colors.PRIMARY_GREEN, 
         padding=5
@@ -91,7 +91,7 @@ def clima_template(titulo: str, valor: str, icone: str):
         width=70,
         height=22,
     )
-    imagem_valor = Image(src=f"assets/icons/{icone}.svg", height=13)
+    imagem_valor = Image(src=f"/icons/{icone}.svg", height=13)
     controles_valor = [container_valor, imagem_valor]
 
     # Cria a linha principal de conteúdo com as linhas de título e valor
