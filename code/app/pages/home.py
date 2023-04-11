@@ -3,6 +3,7 @@ from componentes.NavigationBar import navigation_bar
 from componentes.AppBar import appbar
 from componentes.botões.ElevatedButton import HomeButton
 from componentes.Container import *
+from componentes.Card import *
 from componentes.Graficos import grafico_temperatura, grafico_Etc, grafico_umidade, grafico_vento, grafico_radiacao
 from componentes.Clima import temperatura, vento, umidade, pressao, radiacao
 
