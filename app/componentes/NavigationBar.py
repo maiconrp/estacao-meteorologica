@@ -15,7 +15,7 @@ class NavigationDestinationTemplate(NavigationDestination):
     def __init__(self, icon, label="Cultura", width=16):
         super().__init__()
         self.label = label
-        self.icon_content = Image(src=f"/icons/navbar/{icon}.svg", width=width)
+        self.icon_content = Image(src=f"assets/icons/navbar/{icon}.svg", width=width)
 
 
 class NavigationBarTemplate(NavigationBar):

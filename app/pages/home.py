@@ -5,7 +5,7 @@ from componentes.botões.ElevatedButton import HomeButton
 from componentes.Container import *
 from componentes.Card import *
 from componentes.Graficos import grafico_temperatura, grafico_umidade, grafico_vento, grafico_radiacao
-from componentes.Clima import temperatura, vento, umidade, pressao, radiacao
+from database import umidade, vento, temperatura, pressao, radiacao
 
 
 class HomePage:

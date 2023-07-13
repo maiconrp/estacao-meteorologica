@@ -17,11 +17,7 @@ from flet import (
 )
 import flet as ft
 import assets.colors
-from utils.equations.eto import EToPMF
-from utils.equations.etc import Etc
-from utils.equations.volume import Ti
-from utils.equations.irrigacao import idade, Area
-from utils.equations.economia import economia, litros_economizados
+from utils.equations import *
 from .Cultura import dlg_cultura
 from .CadastroCultura import dlg_cadastro, getValues
 from database import cultura, estagio, data_plantio, vazao
@@ -107,7 +103,7 @@ class Cultura(UserControl):
                     controls=[
                         Container(
                             Image(
-                                src=f"/icons/corn.png",
+                                src=f"assets/icons/corn.png",
                                 width=300,
                                 height=300,
                             ),
@@ -168,7 +164,7 @@ card_irrigacao = Card(
                             ),
                         ),
                         Image(
-                            src=f"/icons/watch.svg",
+                            src=f"assets/icons/watch.svg",
                             width=20,
                             height=20,
                         ),
@@ -223,7 +219,7 @@ card_economia = Card(
                             ),
                         ),
                         Image(
-                            src=f"/icons/percentage.svg",
+                            src=f"assets/icons/percentage.svg",
                             width=20,
                             height=20,
                         ),
@@ -234,15 +230,6 @@ card_economia = Card(
                         value="{:.0f}%".format(economia), color="#000000", size=33, weight=FontWeight.W_700
                     ),
                     margin=margin.only(top=-7),
-                ),
-                Container(
-                    content = Text(
-                        value=str(litros_economizados)+" litros economizados",
-                        color="#000000",
-                        size=11,
-                        weight=FontWeight.W_400,
-                    ),
-                    margin=margin.only(top=-4),
                 ),
             ]
         ),
@@ -286,7 +273,7 @@ card_ET = Card(
                                     alignment=MainAxisAlignment.CENTER,
                                     controls=[
                                         Image(
-                                            src=f"/icons/gotinha.svg",
+                                            src=f"assets/icons/gotinha.svg",
                                             width=16,
                                             height=16,
                                         ),
@@ -330,7 +317,7 @@ card_ET = Card(
                                     alignment=MainAxisAlignment.CENTER,
                                     controls=[
                                         Image(
-                                            src=f"/icons/plantinha.svg",
+                                            src=f"assets/icons/plantinha.svg",
                                             width=16,
                                             # height=16,
                                         ),

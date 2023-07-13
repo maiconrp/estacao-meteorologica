@@ -154,7 +154,7 @@ dlg_estacao = DialogTemplateEstacao(
                             Container(
                                 margin=margin.only(right=-95, bottom=-140, top=-40, left=-20),
                                 content = Image(
-                                        src=f"/icons/settings.svg",                                          
+                                        src=f"assets/icons/settings.svg",                                          
                                     )
                             ),
                             Text(
