@@ -1,4 +1,4 @@
-from flet import (
+'''from flet import (
     Container,
     FontWeight,
     Image,
@@ -15,7 +15,7 @@ from flet import (
 )
 
 import assets.colors
-from database import get_value, dict_temp, dict_rad, dict_umi, dict_vento, dict_pressao
+
 
 class ClimaTemplate(UserControl):
     """
@@ -40,6 +40,10 @@ class ClimaTemplate(UserControl):
         margin=0,
         border_radius=10,
     ):
+        def att_valor(self, e):
+            self.page.update()
+            print("valor atualizado")
+
         super().__init__()
         self.bgcolor = bgcolor
         self.content = content
@@ -69,10 +73,10 @@ class ClimaTemplate(UserControl):
 # icons.AIR
 
 
-def clima_template(titulo: str, valor: str, icone: str):
+def clima_template(titulo: str, valor: str, icone: str, atualizar):
     # Cria os controles filhos para a linha do título
     imagem_titulo = Container(
-        Image(src=f"/icons/clima/{titulo}.svg", width=18, height=18),
+        Image(src=f"assets/icons/clima/{titulo}.svg", width=18, height=18),
         shape=BoxShape.CIRCLE, 
         bgcolor=assets.colors.PRIMARY_GREEN, 
         padding=5
@@ -91,7 +95,7 @@ def clima_template(titulo: str, valor: str, icone: str):
         width=70,
         height=22,
     )
-    imagem_valor = Image(src=f"/icons/{icone}.svg", height=13)
+    imagem_valor = Image(src=f"assets/icons/{icone}.svg", height=13)
     controles_valor = [container_valor, imagem_valor]
 
     # Cria a linha principal de conteúdo com as linhas de título e valor
@@ -103,11 +107,12 @@ def clima_template(titulo: str, valor: str, icone: str):
     )
 
     # Retorna o objeto ClimaTemplate com o conteúdo e a cor de fundo
+
     return ClimaTemplate(content=conteudo)
 
 
-temperatura = clima_template("temperatura", get_value(dict_temp)+' °C', "setaBaixo")
+temperatura = clima_template("temperatura",  (dict_temp)+' °C', "setaBaixo", atualizar='nao')
 vento = clima_template("vento", get_value(dict_vento)+' Km/h', "setaCima")
 umidade = clima_template("umidade", get_value(dict_umi)+' %', "setaBaixo")
 pressao = clima_template("pressão", get_value(dict_pressao)+' hpa', "setaCima")
-radiacao = clima_template("radiação", get_value(dict_rad)+' W/m²', "setaCima")
+radiacao = clima_template("radiação", get_value(dict_rad)+' W/m²', "setaCima")'''

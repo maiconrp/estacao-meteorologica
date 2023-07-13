@@ -1,10 +1,8 @@
 import flet as ft
 from flet import *
 from database import estagio, data_plantio, cultura, tempo_ant, vazao
-from utils.equations.volume import Ti
-from utils.equations.economia import economia
-from utils.equations.irrigacao import Area
-from utils.equations.etc import Kc
+from utils.equations import*
+
 
 
 

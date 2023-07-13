@@ -1,6 +1,4 @@
 from pages.home import HomePage
-from pages.dashboard import DashBoardPage
-from pages.auth.login import LoginPage
 from flet import Page
 import flet as ft
 
@@ -13,9 +11,7 @@ class RouteConfig:
     def __init__(self, page: Page):
         self.page = page
         self.routes = {
-            "/dashboard": DashBoardPage.build(),
             "/": HomePage.build(),
-            "/login": LoginPage.build(),
         }
         """
         Configura os eventos de mudança de rota e de remoção da última vista.
