@@ -9,13 +9,13 @@ Este projeto visa desenvolver um sistema de monitoramento de irrigação via est
 
 ## Funcionalidades:
 * [ ] Cadastro e Autenticação de produtor
-* [ ] Gerenciamento de cultura;
+* [x] Gerenciamento de cultura;
 * [ ] Controlde e monitoramento da estação;
-* [ ] Envio dos dados coletados pela estação para banco de dados.
+* [x] Envio dos dados coletados pela estação para banco de dados.
 * [ ] Notificação de mal funcionamento de sensores ou coleta de dados.
-* [ ] Cálculo da Evapotranspiração de Referência e Diária da Cultura.
-* [ ] Visualização dos dados climatológicos e do tempo de irrigação ativo
-* [ ] Calculo de conomia de consumo de água.
+* [x] Cálculo da Evapotranspiração de Referência e Diária da Cultura.
+* [x] Visualização dos dados climatológicos e do tempo de irrigação ativo
+* [x] Calculo de conomia de consumo de água.
 
 
 O projeto possui diversas melhorias, implementando cada vez mais novos recursos. 
