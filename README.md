@@ -27,6 +27,8 @@ O projeto possui diversas melhorias, implementando cada vez mais novos recursos.
 * Módulo Sensor de Luminosidade TEMT600
 * Sensor de Pressão, Temperatura e altitude BMP280
 * Reed Switch
+* Placa solar 12v
+* Bateria de lítio 2200a
 
 ## Software 
 ### Estação Meteorológica
@@ -68,4 +70,3 @@ Para contribuir veja o [nosso guia][guia]
 [docs]: https://github.com/maiconrp/estacao-meteorologica/tree/master/docs
 [casos de uso]: https://github.com/maiconrp/estacao-meteorologica/blob/master/docs/Doc%20de%20visao/Doc%20de%20Vis%C3%A3o%20-%20Esta%C3%A7%C3%A3o%20Meteorol%C3%B3gica.pdf
 [guia]: https://github.com/maiconrp/estacao-meteorologica/tree/master/guia#readme
-
