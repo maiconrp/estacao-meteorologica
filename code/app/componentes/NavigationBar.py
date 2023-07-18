@@ -30,9 +30,9 @@ class NavigationBarTemplate(NavigationBar):
     def __init__(
         self,
         destinations=[
+            # NavigationDestinationTemplate(label="Home", icon="home"),
             NavigationDestinationTemplate(label="Dashboard", icon="plant"),
-            NavigationDestinationTemplate(label="Home", icon="home"),
-            NavigationDestinationTemplate(label="Perfil", icon="user"),
+            # NavigationDestinationTemplate(label="Perfil", icon="user"),
         ],
         bgcolor="#FFFFFF",
         height=70,

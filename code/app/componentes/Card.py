@@ -231,6 +231,15 @@ card_economia = Card(
                     ),
                     margin=margin.only(top=-7),
                 ),
+                Container(
+                    margin=margin.only(top=-4),
+                    content = Text(
+                        value="Com base no tempo de irrigação anterior",
+                        color="#000000",
+                        size=11,
+                        weight=FontWeight.W_400,
+                    )
+                ),
             ]
         ),
     ),

@@ -1,4 +1,6 @@
 import flet as ft
+import datetime as dt
+
 from flet import (
     Container,
     FontWeight,
@@ -32,6 +34,7 @@ config = {
 FIREBASE = pyrebase.initialize_app(config)
 
 db = FIREBASE.database()
+dia_atual = dt.date.today()
 
 path1 = "/Produtor/Cultura/Meteorologia/{}/valor_atual"
 path2 = "/Produtor/Cultura/{}"
@@ -58,13 +61,14 @@ values_umi = []
 values_vento = []
 values_etc = []
 
-
-dict_temp = db.child('/Produtor/Cultura/Meteorologia/temperatura_dht/3').get()
+# day = dia_atual.day
+day = 3
+dict_temp = db.child(f'/Produtor/Cultura/Meteorologia/temperatura_dht/{day}').get()
 valores_etc = db.child('/Produtor/Cultura/Meteorologia/etc').get()
-dict_rad = db.child('/Produtor/Cultura/Meteorologia/radiacao/3').get()
-dict_umi = db.child('/Produtor/Cultura/Meteorologia/umidade/3').get()
-dict_vento = db.child('/Produtor/Cultura/Meteorologia/vento/5').get()
-dict_pressao = db.child('/Produtor/Cultura/Meteorologia/pressao_bmp/3').get()
+dict_rad = db.child(f'/Produtor/Cultura/Meteorologia/radiacao/{day}').get()
+dict_umi = db.child(f'/Produtor/Cultura/Meteorologia/umidade/{day}').get()
+dict_vento = db.child(f'/Produtor/Cultura/Meteorologia/vento/{day}').get()
+dict_pressao = db.child(f'/Produtor/Cultura/Meteorologia/pressao_bmp/{day}').get()
 
 
 Etc = calc_media(valores_etc, values_etc) #Saldo de radiação em MJ/m2.dia
@@ -117,14 +121,6 @@ tempo_ant = tempo_ant.val()
 
 data_plantio = db.child('/Produtor/Cultura/data_plantio').get()
 data_plantio = data_plantio.val()
-
-
-#print(cultura)
-#print(Rn)
-#print(Temp)
-#print(ur)
-#print(vv)
-
 
 def get_value(dicio):
     dic = dicio.val()
@@ -184,7 +180,7 @@ class StreamValor(ft.UserControl):
                             alignment=alignment.center,
                             border_radius=12,
                             bgcolor=assets.colors.WIDGET,
-                            width=40,
+                            width=55,
                             height=22,
                         ),
                         Image(src=f"assets/icons/{self.icone}.svg", height=13),
@@ -196,56 +192,56 @@ class StreamValor(ft.UserControl):
 
 
 
-temperatura = StreamValor(titulo="temperatura",  valor=get_value(dict_temp)+' °C', icone="setaBaixo")
-vento = StreamValor(titulo="vento", valor=get_value(dict_vento)+' Km/h', icone="setaCima")
-umidade = StreamValor(titulo="umidade", valor=get_value(dict_umi)+' %', icone="setaBaixo")
-pressao = StreamValor(titulo="pressão", valor=get_value(dict_pressao)+' hpa', icone="setaCima")
-radiacao = StreamValor(titulo="radiação", valor=get_value(dict_rad)+' W/m²', icone="setaCima")
+temperatura = StreamValor(titulo="temperatura",  valor=get_value(dict_temp)+' °C')
+vento = StreamValor(titulo="vento", valor=get_value(dict_vento)+' Km/h')
+umidade = StreamValor(titulo="umidade", valor=get_value(dict_umi)+' %')
+pressao = StreamValor(titulo="pressão", valor=get_value(dict_pressao)+' hpa')
+radiacao = StreamValor(titulo="radiação", valor=get_value(dict_rad)+' W/m²')
 
 
 def stream_handler_temp(message):
-    print(message['data'])
+    
     dict_value = message["data"]
     valor = list(dict_value.values())[-1]
-    print(valor)
-    temperatura.valor = valor
-    print(umidade.valor)
+    
+    temperatura.valor = str(valor) +' °C'
+    
     temperatura.build()
     
 stream_temp = db.child('/Produtor/Cultura/Meteorologia/temperatura_dht/vila').stream(stream_handler_temp)
 
 
 def stream_handler_umidade(message):
-    print(message['data'])
+    
     dict_value = message["data"]
     valor = list(dict_value.values())[-1]
-    print(valor)
-    umidade.valor = valor
-    print(umidade.valor)
+    
+    umidade.valor = str(valor) + '%'
+
     umidade.build()
     
 stream_umidade = db.child('/Produtor/Cultura/Meteorologia/umidade/vila').stream(stream_handler_umidade)
 
 
 def stream_handler_radiacao(message):
-    print(message['data'])
+    
     dict_value = message["data"]
     valor = list(dict_value.values())[-1]
-    print(valor)
-    radiacao.valor = valor
-    print(radiacao.valor)
+    
+    radiacao.valor = str(valor) +' W/m²'
+    
     radiacao.build()
     
 stream_radiacao = db.child('/Produtor/Cultura/Meteorologia/radiacao/vila').stream(stream_handler_radiacao)
 
 
 def stream_handler_vento(message):
-    print(message['data'])
+    
     dict_value = message["data"]
     valor = list(dict_value.values())[-1]
-    print(valor)
-    vento.valor = valor
-    print(vento.valor)
+    
+    vento.valor = str(valor) +' m/s'
+    
     vento.build()
     
 stream_vento = db.child('/Produtor/Cultura/Meteorologia/vento/vila').stream(stream_handler_vento)
@@ -253,10 +249,10 @@ stream_vento = db.child('/Produtor/Cultura/Meteorologia/vento/vila').stream(stre
 
 
 def stream_handler_pressao(message):
-    print(message['data'])
+    
     dict_value = message["data"]
     valor = list(dict_value.values())[-1]
-    print(valor)
+    
     pressao.valor = valor
     print(pressao.valor)
     pressao.build()

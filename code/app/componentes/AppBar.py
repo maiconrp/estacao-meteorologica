@@ -83,7 +83,7 @@ class AppBarTemplate(AppBar):
                     Column(
                         controls=[
                             Text(
-                                value="Olá, Victor",
+                                value="Olá, Woquiton",
                                 color="#000000",
                                 size=20,
                                 weight=FontWeight.W_700,

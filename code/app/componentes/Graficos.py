@@ -26,7 +26,7 @@ class GraficoLinhas(UserControl):
         fig = go.Figure()
 
         try:
-            dias = [v.key() for v in self.dicio.each() if type(v) != 'NoneType']
+            dias = [v.key() for i, v in enumerate(self.dicio.each()) if type(v) != 'NoneType' and i < 15]
         except:
             dias = [i for i in range(10)]
             
